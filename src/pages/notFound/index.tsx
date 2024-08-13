@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom"
+import { Container } from "./style"
 
 const NotFound = () => {
   return (
-    <div>  <h1 style={{ fontSize: "6rem", margin: "0" }}>404</h1>
+    <Container>
+    <span >404</span>
     <p style={{ fontSize: "1.5rem", margin: "0", paddingBottom: "15px" }}>
       Desculpe, a página que você está procurando não existe.
     </p>
@@ -17,7 +19,8 @@ const NotFound = () => {
       }}
     >
       Voltar para a Página Inicial
-    </Link></div>
+    </Link>
+    </Container>
   )
 }
 
