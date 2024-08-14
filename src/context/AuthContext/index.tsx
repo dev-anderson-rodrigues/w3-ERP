@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from "react";
-import { IAuthContext, IUser, loginType } from "./types";
+import { IAuthContext, IUser, IAuthUser } from "./types";
 import {
   login as apiLogin,
   getDadosProfileLocalStorage,
@@ -19,17 +19,17 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     }
   }, []);
 
-  const login = async (payload: loginType) => {
-    const { id, email, password } = await apiLogin(payload);
+  const login = async (payload: IAuthUser) => {
+    console.log(payload);
+    const user = await apiLogin(payload);
+    console.log()
 
-    if(!email || !password){
-        throw new Error('Email ou senha inválidos, tente novamente ou crie uma nova conta!');
-    }
-    setUser({ ...payload, id});
-    setDadosProfileLocalStorage({ ...payload });
+   
+    setUser(user);
+    setDadosProfileLocalStorage(user);
     setIsAuthenticated(true);
 
-    return name;
+    return user;
   };
 
   const logout = async () => {

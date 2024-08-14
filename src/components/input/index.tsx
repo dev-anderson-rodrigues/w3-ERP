@@ -10,7 +10,7 @@ const Input = forwardRef<HTMLInputElement, propsInput>(
         placeholder={`Enter your ${label}`}
         inputRef={ref}
         variant="outlined"
-        style={{ maxWidth: "90%" }}
+        style={{ maxWidth: "90%",borderRadius: "10px" }}
         fullWidth
         required={required}
         {...rest}
