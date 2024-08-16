@@ -1,25 +1,27 @@
 import { styled } from "styled-components";
 
-export const Form = styled.form`
+export const ContainerForm = styled.form`
   width: 100%;
+  max-width: 400px;
   display: flex;
   flex-direction: column;
-  display: flex;
   justify-content: center;
   align-items: center;
   gap: 2rem;
 
-  .logo {
-    top: 60px;
-    width: 100%;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-  }
   h2 {
     padding-top: 20px;
     font-size: 1.5rem;
   }
+  a {
+    color: #616161;
+    font-weight: 400;
+    font-size: 16px;
+    font-family: Poppins, Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
   button {
     width: 90%;
     padding: 0.5rem 1rem;
@@ -31,21 +33,60 @@ export const Form = styled.form`
 
   .container_link {
     display: flex;
-    gap: 6px;
+    width: 85%;
+    justify-content: space-between;
     align-items: center;
-    text-align: center;
-    justify-content: center;
-    width: max-content;
-    max-width: fit-content;
-    margin: auto;
-    font-size: inherit;
 
-    span {
-      width: 6px;
-      height: 6px;
-      background-color: #6379f4;
-      opacity: 0.9;
-      border-radius: 5px;
+    .container_remember{
+      display: flex;
+      align-items: center;
+      gap: 5px;
+
+      p {
+        font-size: 16px;
+        font-weight: 600;
+        font-family: Poppins, Arial, Helvetica, sans-serif;
+        color: #212121;
+      }
+      .checkbox_wrapper{
+        display: flex;
+        align-items: center;
+      }
+      .custom_checkbox{
+        position: relative;
+        width: 20px;
+        height: 20px;
+        -webkit-appearance: none;
+        appearance: none;
+        background-color: white;
+        border: 2px solid #ccc;
+        cursor: pointer;
+        outline: none;
+        transition: background-color 0.3s, border-color 0.3s;
+      }
+      .custom_checkbox:checked {
+        background-color: #007bff;
+        border: 2px solid #007bff;
+        transition: background-color 0.3s;
+      }
+      .custom_checkbox:checked::after {
+        content: '';
+        position: absolute;
+        top: 3px;
+        left: 4px;
+        width: 9px;
+        height: 5px;
+        border-left: 2px solid white;
+        border-bottom: 2px solid white;
+        transform: rotate(-45deg);
+      }
     }
   }
 `;
+
+export const Container = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  `

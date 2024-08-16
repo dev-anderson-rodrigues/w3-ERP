@@ -1,11 +1,11 @@
 import { forwardRef } from "react";
-import TextField from "@mui/material/TextField";
 import { propsInput } from "./types";
+import { StyledTextField } from "./styles";
 
 const Input = forwardRef<HTMLInputElement, propsInput>(
   ({ label, required, ...rest }, ref) => {
     return (
-      <TextField
+      <StyledTextField
         label={label}
         placeholder={`Enter your ${label}`}
         inputRef={ref}

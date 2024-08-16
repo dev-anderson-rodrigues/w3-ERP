@@ -6,6 +6,7 @@ export const GlobalStyle = createGlobalStyle`
   line-height: 1.5;
   font-weight: 400;
   background-color: #FFFFFF;
+  box-sizing: border-box;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;

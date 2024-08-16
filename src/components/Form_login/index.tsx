@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Form } from "./styles";
+import { Container, ContainerForm } from "./styles";
 import { useNavigate } from "react-router-dom";
 import { getDadosProfileLocalStorage, setDadosProfileLocalStorage } from "../../context/AuthContext/utils";
 import { useAuth } from "../../context/AuthContext/useAuth";
@@ -15,7 +15,7 @@ const FormLogin = () => {
     handleSubmit,
     register,
     setValue,
-    formState: { errors, isSubmitting },
+    formState: { errors, isSubmitting, isValid },
   } = useForm<IAuthUser>({
     mode: "onSubmit",
   });
@@ -52,8 +52,8 @@ const FormLogin = () => {
   };
 
   return (
-    <div>
-      <Form onSubmit={handleSubmit(handleFormSubmit)}>
+      <Container>
+        <ContainerForm onSubmit={handleSubmit(handleFormSubmit)}>
         <span>Seja bem-vindo!</span>
         <h2>Realize seu Login</h2>
         <Input
@@ -86,27 +86,27 @@ const FormLogin = () => {
           helperText={errors.password?.message}
         />
         
-        <button type="submit">
+        <button type="submit" disabled={isSubmitting && isValid}>
           {isSubmitting ? "Loading..." : "Entrar"}
         </button>
         
         {errorMessage && (
-          <div>
+          <div style={{maxWidth: "85%"}}>
             {errorMessage}
           </div>
         )}
         
-        <div>
-          <span>
-            <input type="checkbox" />
+        <div className="container_link">
+          <span className="container_remember">
+            <div className="checkbox_wrapper"><input type="checkbox" className="custom_checkbox"/></div>
             <p>Lembre-me</p>
           </span>
           <span>
             <a href="#">Esqueci minha senha</a>
           </span>
         </div>
-      </Form>
-    </div>
+      </ContainerForm>
+      </Container>
   );
 }
 
