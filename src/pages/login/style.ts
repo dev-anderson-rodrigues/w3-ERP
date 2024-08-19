@@ -27,8 +27,68 @@ export const Appcontainer = styled(Box)(() => ({
        ".containerCenter": {
         background: "linear-gradient(157.28deg, #C5CFFF -10.56%, #7C8DD9 14.09%, #334AB3 49.27%, #0D279F 83.18%, #08239C 105.52%, #001C98 121.79%)",
         width: "80%",
-        height: "90%",
+        height: "85%",
         borderRadius: "32px",
+        position: "relative",
+
+        ".container_Text": {
+            maxWidth: "363px",
+            marginLeft: "60px",
+            marginTop: "60px",
+
+            "& h3": {
+                color: "#FFFFFF",
+                fontSize: "32px",
+                fontWeight: "600",
+                fontFamily: "Sora",
+
+                "& span": {
+                    color: "#FFD700",
+                }
+            },  
+            },
+            ".container_Icons": {
+                position: "absolute",
+                top: "17vh",
+                left: "250px",
+                height: "80%",
+            },
+            ".container_Graphic": {
+                position: "absolute",
+                width: "100px",
+                display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                height: "100px",
+                right: "-50px",
+                top: "140px",
+                borderRadius: "50%",
+                backgroundColor: "#FFFFFF",
+
+                "& img": {
+                    width: "60%",
+                    height: "60%",
+                }
+                
+            },
+            ".container_emotion": {
+                position: "absolute",
+                width: "100px",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                height: "100px",
+                left: "-50px",
+                top: "600px",
+                borderRadius: "50%",
+                backgroundColor: "#FFFFFF",
+
+                "& img": {
+                    width: "60%",
+                    height: "60%",
+                },
+            }
+
         },
     }
 }));

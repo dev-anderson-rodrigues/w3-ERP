@@ -4,4 +4,5 @@ export interface propsInput extends Omit<TextFieldProps, "ref"> {
   label: string;
   type?: "text" | "password" | "email";
   errors?: string;
+  password?: boolean;
 }

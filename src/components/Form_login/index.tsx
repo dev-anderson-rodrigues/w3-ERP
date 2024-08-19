@@ -44,7 +44,9 @@ const FormLogin = () => {
       const response = await login(credentials);
       if(response) {
         setIsAuthenticated(() => true);
-        navigate("/dashboard");
+        setTimeout(() => {
+          navigate("/dashboard");
+        }, 1000);
       }
     } catch (error) {
       if (error instanceof Error) setErrorMessage(error.message);
@@ -56,54 +58,56 @@ const FormLogin = () => {
         <ContainerForm onSubmit={handleSubmit(handleFormSubmit)}>
         <span>Seja bem-vindo!</span>
         <h2>Realize seu Login</h2>
-        <Input
-          label="Email"
-          type="email"
-          autoComplete="current-email"
-          {...register("email", {
-            required: "Email é obrigatório",
-            pattern: {
-              value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-              message: "Email inválido",
-            },
-          })}
-          error={!!errors.email}
-          helperText={errors.email?.message}
-        />
-        
-        <Input
-          label="Senha"
-          type="password"
-          autoComplete="current-password"
-          {...register("password", {
-            required: "Senha é obrigatória",
-            pattern: {
-              value: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&.*])[0-9a-zA-Z!@#$%^&*]{6,}$/,
-              message: "Senha deve ter pelo menos 6 caracteres, incluindo letras maiúsculas, minúsculas, números e caracteres especiais",
-            }
-          })}
-          error={!!errors.password}
-          helperText={errors.password?.message}
-        />
-        
-        <button type="submit" disabled={isSubmitting && isValid}>
-          {isSubmitting ? "Loading..." : "Entrar"}
-        </button>
-        
-        {errorMessage && (
-          <div style={{maxWidth: "85%"}}>
-            {errorMessage}
+        <div className="container_content">
+          <Input
+            label="Email"
+            password={false}
+            autoComplete="current-email"
+            {...register("email", {
+              required: "Email é obrigatório",
+              pattern: {
+                value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+                message: "Email inválido",
+              },
+            })}
+            error={!!errors.email}
+            helperText={errors.email?.message}
+          />
+          
+          <Input
+            label="Senha"
+            password={true}
+            autoComplete="current-password"
+            {...register("password", {
+              required: "Senha é obrigatória",
+              pattern: {
+                value: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&.*])[0-9a-zA-Z!@#$%^&*]{6,}$/,
+                message: "Senha deve ter pelo menos 6 caracteres, incluindo letras maiúsculas, minúsculas, números e caracteres especiais",
+              }
+            })}
+            error={!!errors.password}
+            helperText={errors.password?.message}
+          />
+          
+          <button type="submit" disabled={isSubmitting && isValid}>
+            {isSubmitting ? "Loading..." : "Entrar"}
+          </button>
+          
+          {errorMessage && (
+            <div style={{maxWidth: "85%"}}>
+              {errorMessage}
+            </div>
+          )}
+          
+          <div className="container_link">
+            <span className="container_remember">
+              <div className="checkbox_wrapper"><input type="checkbox" className="custom_checkbox"/></div>
+              <p>Lembre-me</p>
+            </span>
+            <span>
+              <a href="#">Esqueci minha senha</a>
+            </span>
           </div>
-        )}
-        
-        <div className="container_link">
-          <span className="container_remember">
-            <div className="checkbox_wrapper"><input type="checkbox" className="custom_checkbox"/></div>
-            <p>Lembre-me</p>
-          </span>
-          <span>
-            <a href="#">Esqueci minha senha</a>
-          </span>
         </div>
       </ContainerForm>
       </Container>

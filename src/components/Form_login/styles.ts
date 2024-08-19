@@ -7,11 +7,23 @@ export const ContainerForm = styled.form`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
+  
+  .container_content{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding-top: 20px;
+    max-width: 400px;
+    width: 100%;
+    }
 
   h2 {
-    padding-top: 20px;
     font-size: 1.5rem;
+    display: flex;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    
   }
   a {
     color: #616161;
@@ -33,7 +45,7 @@ export const ContainerForm = styled.form`
 
   .container_link {
     display: flex;
-    width: 85%;
+    width: 90%;
     justify-content: space-between;
     align-items: center;
 
@@ -89,4 +101,10 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  span {
+    display: flex;
+    text-align: left;
+    width: 100%;
+  }
   `
