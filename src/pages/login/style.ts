@@ -49,9 +49,9 @@ export const Appcontainer = styled(Box)(() => ({
             },
             ".container_Icons": {
                 position: "absolute",
-                top: "17vh",
-                left: "250px",
-                height: "80%",
+                top: "21vh",
+                right: "-70px",
+                height: "75%",
             },
             ".container_Graphic": {
                 position: "absolute",

@@ -1,6 +1,6 @@
 import { forwardRef, useState } from "react";
 import { propsInput } from "./types";
-import { StyledTextField } from "./styles";
+import { Container, StyledTextField } from "./styles";
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 
 const Input = forwardRef<HTMLInputElement, propsInput>(
@@ -8,7 +8,7 @@ const Input = forwardRef<HTMLInputElement, propsInput>(
     const [showPassword, setShowPassword] = useState(false);
     
     return (
-     <span className="container_Input">
+     <Container className="container_Input">
       <StyledTextField
         label={label}
         placeholder={`Enter your ${label}`}
@@ -21,10 +21,10 @@ const Input = forwardRef<HTMLInputElement, propsInput>(
         {...rest}
       />
       {password &&
-       <div onClick={() => setShowPassword(!showPassword)}>
+       <div onClick={() => setShowPassword(!showPassword)} className="button_psw">
         {showPassword ? <Visibility /> : <VisibilityOff />}
       </div>}
-     </span>
+     </Container>
     );
   }
 );

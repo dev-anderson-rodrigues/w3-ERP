@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { getDadosProfileLocalStorage, setDadosProfileLocalStorage } from "../../context/AuthContext/utils";
 import { useAuth } from "../../context/AuthContext/useAuth";
 import { useForm } from 'react-hook-form';
-import Input from "../input";
+import Input from "../Input";
 import { IAuthUser } from "../../context/AuthContext/types";
 
 const FormLogin = () => {

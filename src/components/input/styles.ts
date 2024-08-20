@@ -15,3 +15,15 @@ export const StyledTextField = styled(TextField)<propsInput>(() => ({
     height: '60px',
   },
 }));
+
+export const Container = styled.span`
+position: relative;
+  .button_psw{
+    margin-top: 20px;
+    position: absolute;
+    right: 55px;
+    cursor: pointer;
+    color: #BDBDBD;
+    transition: all 0.3s ease-in-out;
+  }
+`
