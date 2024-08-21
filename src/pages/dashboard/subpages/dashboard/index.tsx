@@ -1,4 +1,5 @@
 import CardsGraphic from '../../../../components/Cards_graphic'
+import FilterBar from '../../../../components/Filter_Button'
 import { ContainerBlue } from './styles'
 
 const TemplateDashboard = () => {
@@ -17,6 +18,9 @@ const TemplateDashboard = () => {
           />
         </div>
       </ContainerBlue>
+      {/* <FilterBar initialState="alta" /> */}
+      <FilterBar initialState="alta" />
+      <FilterBar initialState="baixa" />
     </div>
   )
 }
