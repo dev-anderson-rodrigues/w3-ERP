@@ -1,6 +1,6 @@
 export interface propsCardsGraphics {
     text?: string;
-    porcentage_circle?: string;
+    percentageGraphic?: number;
     value?: number;
     porcetage?: string;
 }

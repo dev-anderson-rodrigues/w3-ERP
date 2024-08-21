@@ -17,7 +17,8 @@ export const AppContainer = styled.div`
     font-weight: 400;
     font-size: 14px;
     font-family: Poppins;
-    margin-left: 30px;
+    margin-left: 20px;
+    margin-top: 25px;
   }
   .div_right{
     flex: 1;
