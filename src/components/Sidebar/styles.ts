@@ -3,8 +3,8 @@ import styled from "styled-components";
 export const AppContainer = styled.div`
     display: flex;
     flex-direction: column;
-    align-items: center;
-    width: 15vw;
+    align-items: left;
+    width: 10vw;
     height: 100vh;
     background-color: #001C98;
     box-sizing: border-box;
@@ -15,6 +15,7 @@ export const AppContainer = styled.div`
         padding: 0;
         margin: 0;
         display: flex;
+        margin-left: 10px;
         flex-direction: column;
         gap: 10px;
         width: auto;
@@ -37,10 +38,15 @@ export const AppContainer = styled.div`
             }
         }
     }
-    img{
-        margin-top: 40px;
-        margin-bottom: 40px;
-        width: 70%;
-        text-align: center;
+    .container_logo{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img{
+            margin-top: 40px;
+            margin-bottom: 40px;
+            width: 70%;
+        }
     }
   `;

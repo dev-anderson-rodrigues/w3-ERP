@@ -7,11 +7,8 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
 
-  .sidebar{
-    width: 15%;
-  }
   .content_pages{
-    width: 85%;
-    padding-left: 10px;
+    width: 100%;
+    min-height: 100vh;
   }
   `;

@@ -3,6 +3,8 @@
 import { Outlet } from "react-router-dom"
 import { Container } from "./styles"
 import Sidebar from "../../components/Sidebar"
+import Header from "../../components/Header"
+// import TableComponent from "../../components/Table"
 
 // const columns = ["id","name", "gender", "birth"]
 // const data = [{
@@ -19,9 +21,10 @@ const Dashboard = () => {
         <Sidebar/>
       </div>
       <div className="content_pages">
+        <Header/>
         <Outlet/>
+        {/* <TableComponent columns={columns} data={data}/> */}
       </div>
-      {/* <TableComponent columns={columns} data={data}/> */}
     </Container>
 
   )

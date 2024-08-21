@@ -8,7 +8,9 @@ import icon3 from "../../assets/icons/facial-cleanser.png";
 const Header = () => {
   return (
     <AppContainer>
-        <img src={logoImg}/>
+        <div className="container_logo">
+          <img src={logoImg}/>
+        </div>
         <nav>
             <ul>
                 <li>
@@ -18,13 +20,13 @@ const Header = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/dashboard/predicoes">
+                  <Link to="/dashboard/Predictions">
                     <img src={icon2} alt="" />
                     <span>Predições</span>
                   </Link>
                 </li>
                 <li>
-                  <Link to="/dashboard/produtos">
+                  <Link to="/dashboard/products">
                     <img src={icon3} alt="" />
                     <span>Produtos</span>
                   </Link>

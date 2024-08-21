@@ -3,6 +3,7 @@ import Login from '../pages/login'
 import Dashboard from '../pages/dashboard'
 import ProtectRoute from '../components/Protect_routes'
 import NotFound from '../pages/notFound'
+import TemplateDashboard from '../pages/dashboard/subpages/dashboard'
 
 const AppRoutes = () => {
   return (
@@ -11,9 +12,9 @@ const AppRoutes = () => {
         <Route index element={<Login />}/>
         <Route element={<ProtectRoute />}>
               <Route path="dashboard" element={<Dashboard />}>
-                <Route index element={<h1>aqui esta o componente dashboard</h1>}/>
-                <Route path="predicoes" element={<h1>aqui esta o componente</h1>}/>
-                <Route path="produtos" element={<h1>aqui esta o componente de produtos</h1>}/>
+                <Route index element={<TemplateDashboard/>}/>
+                <Route path="Predictions" element={<h1>aqui esta o componente</h1>}/>
+                <Route path="products" element={<h1>aqui esta o componente de produtos</h1>}/>
               </Route>
           </Route>
             <Route path="*" element={<NotFound />} />
