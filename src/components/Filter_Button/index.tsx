@@ -8,16 +8,20 @@ const FilterBar = ({ initialState }: FilterBarProps) => {
   return (
     <FilterWrapper>
       <FilterButton
-        activeFilter="alta"
-        isActive={activeFilter === 'alta'}
+        style={{
+          backgroundColor: activeFilter === 'alta' ? '#00C247' : '#f4f4f4',
+          color: activeFilter === 'alta' ? '#FFFFFF' : '#9E9E9E',
+        }}
         onClick={() => setActiveFilter('alta')}
       >
         Em alta
       </FilterButton>
       <FilterButton
-        activeFilter="baixa"
         className="btn_low"
-        isActive={activeFilter === 'baixa'}
+        style={{
+          backgroundColor: activeFilter === 'baixa' ? '#FF3333' : '#f4f4f4',
+          color: activeFilter === 'baixa' ? '#FFFFFF' : '#9E9E9E',
+        }}
         onClick={() => setActiveFilter('baixa')}
       >
         Em baixa

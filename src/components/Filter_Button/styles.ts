@@ -11,7 +11,7 @@ export const FilterWrapper = styled.div`
   border-radius: 10px;
 `;
 
-export const FilterButton = styled.button<{isActive: boolean, activeFilter: string }>`
+export const FilterButton = styled.button`
   padding: 8px 16px;
   width: 119px;
   height: 32px;
@@ -21,7 +21,5 @@ export const FilterButton = styled.button<{isActive: boolean, activeFilter: stri
   letter-spacing: 0.2px;
   border: none;
   border-radius: 8px;
-  background-color: ${({ isActive, activeFilter }) => (isActive ? (activeFilter === 'alta' ? '#00C247' : '#FF3333') : '#f4f4f4')};
-  color: ${({ isActive }) => (isActive ? '#FFFFFF' : '#9E9E9E')};
   cursor: pointer;
 `;
