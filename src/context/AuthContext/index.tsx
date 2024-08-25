@@ -19,6 +19,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     if (user) {
       setUser(user)
       setIsAuthenticated(true)
+      setRememberMe(true)
     }
   }, [])
 

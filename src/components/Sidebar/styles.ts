@@ -4,23 +4,28 @@ export const AppContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: left;
-  width: 11vw;
+  width: 11.5vw;
   height: 100vh;
   background-color: #001c98;
   box-sizing: border-box;
 
   ul {
     list-style-type: none;
-    padding: 0;
+    padding: 10px;
     margin: 0;
     display: flex;
-    margin-left: 10px;
     flex-direction: column;
-    gap: 40px;
+    gap: 10px;
     width: auto;
 
+    li {
+      width: 100%;
+      cursor: pointer;
+      border-radius: 10px;
+    }
     li a {
       color: #ffffff;
+      padding: 10px;
       text-decoration: none;
       transition: color 0.3s;
       font-weight: 500;

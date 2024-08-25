@@ -72,4 +72,7 @@ export const ContainerTables = styled.div`
       }
     }
   }
+  @media (min-width: 1400px) {
+    gap: 50px;
+  }
 `
