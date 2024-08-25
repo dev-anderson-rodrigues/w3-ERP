@@ -3,94 +3,120 @@ import FilterBar from '../../../../components/Filter_Button'
 import TableComponent from '../../../../components/Table'
 import icon1 from '../../../../assets/icons/Vector3.png'
 import icon2 from '../../../../assets/icons/every-user.png'
+import imgCalendary from '../../../../assets/icons/data.png'
 import { ContainerBlue, ContainerTables } from './styles'
-import { useEffect, useState } from 'react'
 import NameTable from '../../../../components/Name_Table'
+import { useProduct } from '../../../../context/Products/useProducts'
+import { useCustomer } from '../../../../context/Customers/useCustomer'
+import { useState } from 'react'
 
 const TemplateDashboard = () => {
-  const [data, setData] = useState<any[]>([])
+  const [productFilter, setProductFilter] = useState<'alta' | 'baixa'>('alta')
+  const [customerFilter, setCustomerFilter] = useState<'alta' | 'baixa'>(
+    'baixa',
+  )
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch('http://localhost:3000/products')
-        const result = await response.json()
-        setData(() => result) // Salvando diretamente o objeto no estado
-        console.log('aqui', data)
-      } catch (error) {
-        console.error('Erro ao buscar dados:', error)
-      }
+  const { products } = useProduct()
+  const { customersList } = useCustomer()
+
+  const formatPercentage = (percentage: number | undefined) => {
+    if (typeof percentage === 'number' && !isNaN(percentage)) {
+      return `${percentage.toFixed(2)}%`
     }
+    return '0.00%'
+  }
 
-    fetchData()
-  }, [])
+  // Garantir que products e customers são arrays antes de usar
+  const sortedProducts = products
+    ? [...products].sort((a, b) => {
+        return productFilter === 'alta'
+          ? b.percentage! - a.percentage!
+          : a.percentage! - b.percentage!
+      })
+    : []
 
-  const tableData = data.map((item: any) => ({
-    ID: item.id, // ID
-    Produto: item.name, // Produto
-    Percentual: `${(item.percentage * 100).toFixed(2)}%`, // Percentual
+  const sortedCustomers = customersList
+    ? [...customersList].sort((a, b) => {
+        return customerFilter === 'alta'
+          ? b.percentage - a.percentage
+          : a.percentage - b.percentage
+      })
+    : []
+
+  const productTableData = sortedProducts.slice(0, 11).map((item) => ({
+    ID: item.id,
+    Produto: item.name,
+    Percentual: formatPercentage(item.percentage),
   }))
 
-  tableData.length = 11
+  const customerTableData = sortedCustomers.slice(0, 11).map((item) => ({
+    ID: item.id,
+    Cliente: item.name,
+    Percentual: formatPercentage(item.percentage),
+  }))
+
   return (
     <div>
       <ContainerBlue>
-        <div>
+        <div className="content_top">
           <h4>Dashboard</h4>
+          <img src={imgCalendary} alt="Calendário" />
         </div>
         <div className="container_cards">
           <CardsGraphic
             text="Total produtos em alta"
             percentageGraphic={80}
             value={120}
-            porcetage="+13%"
+            percentage={13}
           />
           <CardsGraphic
             text="Total produtos em baixa"
             percentageGraphic={20}
             value={56}
-            porcetage="+29%"
+            percentage={-29}
           />
           <CardsGraphic
             text="Total clientes em alta"
             percentageGraphic={72}
             value={501}
-            porcetage="+25%"
+            percentage={25}
           />
           <CardsGraphic
             text="Total clientes em baixa"
             percentageGraphic={28}
             value={102}
-            porcetage="+15%"
+            percentage={-15}
           />
         </div>
       </ContainerBlue>
-      {data.length > 0 ? (
-        <ContainerTables>
-          <div className="table">
-            <div className="name_and_filter">
-              <NameTable text="Produtos" img={icon1} />
-              <FilterBar initialState="baixa" />
-            </div>
-            <TableComponent
-              columns={['ID', 'Produto', 'Percentual']}
-              data={tableData}
+      <ContainerTables>
+        <div className="table">
+          <div className="name_and_filter">
+            <NameTable text="Produtos" img={icon1} />
+            <FilterBar
+              initialState={productFilter}
+              onFilterChange={setProductFilter}
             />
           </div>
-          <div className="table">
-            <div className="name_and_filter2">
-              <NameTable text="Clientes" img={icon2} />
-              <FilterBar initialState="baixa" />
-            </div>
-            <TableComponent
-              columns={['ID', 'Produto', 'Percentual']}
-              data={tableData}
+          <TableComponent
+            columns={['ID', 'Produto', 'Percentual']}
+            data={productTableData}
+          />
+        </div>
+        <div className="table">
+          <div className="name_and_filter2">
+            <NameTable text="Clientes" img={icon2} />
+            <FilterBar
+              initialState={customerFilter}
+              onFilterChange={setCustomerFilter}
             />
           </div>
-        </ContainerTables>
-      ) : (
-        <p style={{ paddingLeft: '20px' }}>Carregando dados...</p>
-      )}
+          <TableComponent
+            columns={['ID', 'Cliente', 'Percentual']}
+            data={customerTableData}
+          />
+        </div>
+      </ContainerTables>
     </div>
   )
 }

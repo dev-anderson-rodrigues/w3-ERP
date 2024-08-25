@@ -1,42 +1,46 @@
-import React, { createContext, useEffect, useState } from "react";
-import { IAuthContext, IUser, IAuthUser } from "./types";
+import React, { createContext, useEffect, useState } from 'react'
+import { IAuthContext, IUser, IAuthUser } from './types'
 import {
   login as apiLogin,
   getDadosProfileLocalStorage,
   setDadosProfileLocalStorage,
-} from "./utils";
+  setRemoveProfileLocalStorage,
+} from './utils'
 
-export const AuthContext = createContext<IAuthContext | undefined>(undefined);
+export const AuthContext = createContext<IAuthContext | undefined>(undefined)
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
-  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
-  const [user, setUser] = useState<IUser | null>(null);
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false)
+  const [rememberMe, setRememberMe] = useState(false)
+  const [user, setUser] = useState<IUser | null>(null)
 
   useEffect(() => {
-    const user = getDadosProfileLocalStorage();
+    const user = getDadosProfileLocalStorage()
     if (user) {
-      setUser(user);
+      setUser(user)
+      setIsAuthenticated(true)
     }
-  }, []);
+  }, [])
 
   const login = async (payload: IAuthUser) => {
-    console.log(payload);
-    const user = await apiLogin(payload);
+    console.log(payload)
+    const user = await apiLogin(payload)
     console.log()
 
-   
-    setUser(user);
-    setDadosProfileLocalStorage(user);
-    setIsAuthenticated(true);
+    setUser(user)
+    setDadosProfileLocalStorage(user)
+    setIsAuthenticated(true)
 
-    return user;
-  };
+    return user
+  }
 
   const logout = async () => {
-    localStorage.removeItem("token");
-    setUser(null);
-    setIsAuthenticated(() => false);
-  };
+    if (rememberMe === false) {
+      setRemoveProfileLocalStorage()
+    }
+    setUser(null)
+    setIsAuthenticated(false)
+  }
 
   return (
     <AuthContext.Provider
@@ -47,9 +51,11 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         setIsAuthenticated,
         login,
         logout,
+        rememberMe,
+        setRememberMe,
       }}
     >
       {children}
     </AuthContext.Provider>
-  );
-};
+  )
+}

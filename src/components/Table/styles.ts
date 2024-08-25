@@ -34,5 +34,11 @@ export const Table = styled.table`
     font-size: 16px;
     font-weight: 400;
     font-family: Poppins;
+    cursor: pointer;
+  }
+  tbody {
+    tr:hover {
+      background-color: #c5cfff;
+    }
   }
 `

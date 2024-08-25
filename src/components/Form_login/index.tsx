@@ -11,7 +11,7 @@ import Input from '../Input'
 import { IAuthUser } from '../../context/AuthContext/types'
 
 const FormLogin = () => {
-  const { login } = useAuth()
+  const { login, setRememberMe, rememberMe } = useAuth()
   const [errorMessage, setErrorMessage] = useState<string | null>(null)
 
   const {
@@ -30,8 +30,8 @@ const FormLogin = () => {
     const savedCredentials = getDadosProfileLocalStorage()
     if (savedCredentials) {
       try {
-        const { email, password } = savedCredentials
-        setValue('email', email)
+        const { user, password } = savedCredentials
+        setValue('user', user)
         setValue('password', password)
       } catch (error) {
         console.error('Failed to parse saved credentials:', error)
@@ -39,8 +39,8 @@ const FormLogin = () => {
     }
   }, [setValue])
 
-  const handleFormSubmit = async ({ email, password }: IAuthUser) => {
-    const credentials = { email, password }
+  const handleFormSubmit = async ({ user, password }: IAuthUser) => {
+    const credentials = { user, password }
     setDadosProfileLocalStorage(credentials)
 
     try {
@@ -63,23 +63,25 @@ const FormLogin = () => {
         <h2>Realize seu Login</h2>
         <div className="container_content">
           <Input
-            label="Email"
+            label="E-mail"
+            isValid={isValid}
             password={false}
             autoComplete="current-email"
-            {...register('email', {
+            {...register('user', {
               required: 'Email é obrigatório',
               pattern: {
                 value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
                 message: 'Email inválido',
               },
             })}
-            error={!!errors.email}
-            helperText={errors.email?.message}
+            error={!!errors.user}
+            helperText={errors.user?.message}
           />
 
           <Input
             label="Senha"
             password={true}
+            isValid={isValid}
             autoComplete="current-password"
             {...register('password', {
               required: 'Senha é obrigatória',
@@ -105,7 +107,13 @@ const FormLogin = () => {
           <div className="container_link">
             <span className="container_remember">
               <div className="checkbox_wrapper">
-                <input type="checkbox" className="custom_checkbox" />
+                <input
+                  type="checkbox"
+                  className="custom_checkbox"
+                  id="rememberMe"
+                  checked={rememberMe}
+                  onChange={(e) => setRememberMe(e.target.checked)}
+                />
               </div>
               <p>Lembre-me</p>
             </span>

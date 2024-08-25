@@ -3,9 +3,11 @@ import menu from '../../assets/icons/menu.png'
 import iconUser from '../../assets/icons/User.png'
 import icon from '../../assets/icons/icon.png'
 import { useAuth } from '../../context/AuthContext/useAuth'
+import { useState } from 'react'
 
 const Header = () => {
-  const { user } = useAuth()
+  const { user, logout } = useAuth()
+  const [islogout, setIsLogout] = useState<boolean>(true)
   return (
     <AppContainer>
       <div className="container_menu">
@@ -18,10 +20,16 @@ const Header = () => {
         <div className="profile">
           <div>
             <h4>Rafael Pimenta</h4>
-            <p>{user?.email}</p>
+            {islogout ? (
+              <p>{user?.user}</p>
+            ) : (
+              <div className="logout">
+                <button onClick={logout}>Logout</button>
+              </div>
+            )}
           </div>
           <div>
-            <img src={icon} />
+            <img src={icon} onClick={() => setIsLogout(!islogout)} />
           </div>
         </div>
       </div>

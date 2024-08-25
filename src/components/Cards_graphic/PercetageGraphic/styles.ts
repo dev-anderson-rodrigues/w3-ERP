@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const ChartWrapper = styled.div`
-  width: 80px;
-  height: 80px;
-`;
+  width: 120px;
+  height: 120px;
+`

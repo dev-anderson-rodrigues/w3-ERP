@@ -15,15 +15,25 @@ export const ContainerBlue = styled.div`
     font-size: 25px;
     font-weight: 600;
     margin-left: 20px;
-    margin-top: 25px;
     margin-bottom: 0px;
     font-family: Sora, Poppins;
   }
   .container_cards {
     display: flex;
-    margin-left: 20px;
-    margin-right: 20px;
     justify-content: space-around;
+  }
+  .content_top {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 20%;
+    padding-bottom: 20px;
+    justify-content: space-between;
+
+    img {
+      margin-top: 30px;
+      margin-right: 20px;
+    }
   }
 `
 

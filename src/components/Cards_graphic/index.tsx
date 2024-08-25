@@ -6,8 +6,18 @@ const CardsGraphic = ({
   text,
   percentageGraphic,
   value,
-  porcetage,
+  percentage,
 }: propsCardsGraphics) => {
+  let formattedPercentage = ''
+
+  if (percentage > 0) {
+    formattedPercentage = `+${percentage}%`
+  } else if (percentage < 0) {
+    formattedPercentage = `${percentage}%`
+  } else {
+    formattedPercentage = `${percentage}%`
+  }
+
   return (
     <AppContainer>
       <div className="div_left">
@@ -24,7 +34,12 @@ const CardsGraphic = ({
           <span className="value">
             <h4>{value && value}</h4>
           </span>
-          <span className="porcentage">{porcetage && porcetage}</span>
+          <span
+            className="percentage"
+            style={{ backgroundColor: percentage < 0 ? '#FF3333' : '' }}
+          >
+            {formattedPercentage}
+          </span>
         </div>
       </div>
     </AppContainer>

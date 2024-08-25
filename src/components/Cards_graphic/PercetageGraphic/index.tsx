@@ -22,9 +22,10 @@ const RadialBarDasboard = ({ percentageGraphic }: RadialBarProps) => {
           name: { show: false },
           value: {
             offsetY: 5,
-            fontSize: '12px',
+            fontSize: '14px',
             color: '#FFFFFF', // Cor branca
-            fontWeight: 'bold',
+            fontWeight: '400',
+            fontFamily: 'Poppins',
           },
         },
       },
