@@ -7,39 +7,46 @@ const CardsGraphic = ({
   percentageGraphic,
   value,
   percentage,
+  className,
+  classNamePropText,
+  classNamePropValue,
 }: propsCardsGraphics) => {
   let formattedPercentage = ''
 
-  if (percentage > 0) {
-    formattedPercentage = `+${percentage}%`
-  } else if (percentage < 0) {
-    formattedPercentage = `${percentage}%`
-  } else {
-    formattedPercentage = `${percentage}%`
+  if (percentage !== undefined) {
+    if (percentage > 0) {
+      formattedPercentage = `+${percentage}%`
+    } else {
+      formattedPercentage = `${percentage}%`
+    }
   }
 
   return (
-    <AppContainer>
+    <AppContainer className={className}>
       <div className="div_left">
         {percentageGraphic && (
           <RadialBarDasboard percentageGraphic={percentageGraphic} />
         )}
       </div>
       <div className="div_right">
-        <span>
+        <span className={classNamePropText ? classNamePropText : 'text'}>
           {text && text}
           <img src="" alt="" />
         </span>
         <div>
-          <span className="value">
+          <span className={classNamePropValue ? classNamePropValue : 'value'}>
             <h4>{value && value}</h4>
           </span>
-          <span
-            className="percentage"
-            style={{ backgroundColor: percentage < 0 ? '#FF3333' : '' }}
-          >
-            {formattedPercentage}
-          </span>
+          {percentage !== undefined && (
+            <span
+              className="percentage"
+              style={{
+                backgroundColor: percentage < 0 ? '#FF3333' : '#00c247',
+              }}
+            >
+              {formattedPercentage}
+            </span>
+          )}
         </div>
       </div>
     </AppContainer>

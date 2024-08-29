@@ -64,7 +64,6 @@ const FormLogin = () => {
         <div className="container_content">
           <Input
             label="E-mail"
-            isValid={isValid}
             password={false}
             autoComplete="current-email"
             {...register('user', {
@@ -81,7 +80,6 @@ const FormLogin = () => {
           <Input
             label="Senha"
             password={true}
-            isValid={isValid}
             autoComplete="current-password"
             {...register('password', {
               required: 'Senha é obrigatória',

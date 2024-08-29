@@ -41,6 +41,8 @@ export const ContainerTables = styled.div`
   display: flex;
   padding: 20px;
   gap: 20px;
+  height: 570px;
+  overflow-y: scroll;
 
   table {
     th {

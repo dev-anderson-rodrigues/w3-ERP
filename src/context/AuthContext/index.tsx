@@ -26,7 +26,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const login = async (payload: IAuthUser) => {
     console.log(payload)
     const user = await apiLogin(payload)
-    console.log()
+    console.log('aqui' + user)
 
     setUser(user)
     setDadosProfileLocalStorage(user)

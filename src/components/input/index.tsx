@@ -4,7 +4,7 @@ import { Container, StyledTextField } from './styles'
 import { Visibility, VisibilityOff } from '@mui/icons-material'
 
 const Input = forwardRef<HTMLInputElement, propsInput>(
-  ({ label, password, isValid, required, ...rest }, ref) => {
+  ({ label, password, required, ...rest }, ref) => {
     const [showPassword, setShowPassword] = useState(false)
 
     return (
@@ -13,7 +13,6 @@ const Input = forwardRef<HTMLInputElement, propsInput>(
           label={label}
           placeholder={`Enter your ${label}`}
           inputRef={ref}
-          isValid={isValid}
           type={password ? (showPassword ? 'text' : 'password') : 'text'}
           variant="outlined"
           style={{ maxWidth: '90%', borderRadius: '10px' }}

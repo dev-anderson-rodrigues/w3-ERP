@@ -11,9 +11,7 @@ export const CustomerProvider = ({
   children: React.ReactNode
 }) => {
   const [customersList, setCustomersList] = useState<ICustomer[]>([])
-  const [customersClient, setCustomersClient] = useState<ICustomer | undefined>(
-    undefined,
-  )
+  const [customersClient, setCustomersClient] = useState<ICustomer | null>(null)
 
   useEffect(() => {
     const fetchCustomers = async () => {
@@ -21,6 +19,10 @@ export const CustomerProvider = ({
         const response = await Api.get<ICustomer[]>('customers')
         const result = response.data
         setCustomersList(result)
+        console.log(
+          'Clientes carregados:',
+          result.filter((x) => x !== null),
+        )
 
         // console.log('Clientes carregados:', result)
       } catch (error) {
@@ -31,10 +33,22 @@ export const CustomerProvider = ({
     fetchCustomers()
   }, [])
 
-  const getCustomerId = (id: string) => {
-    const customer = customersList!.find((c) => c.id)
-    setCustomersClient(() => customer)
+  const getCustomerId = (data: ICustomer) => {
+    console.log('aqui esta o data', data)
+
+    if (data) {
+      setCustomersClient(() => data)
+      console.log('Cliente atualizado:', data)
+    } else {
+      console.log('Cliente não encontrado')
+    }
   }
+
+  // useEffect para monitorar mudanças no estado customerProducts
+  useEffect(() => {
+    console.log('aqui esta o customersClient', customersClient)
+  }, [customersClient])
+
   return (
     <CustomersContext.Provider
       value={{

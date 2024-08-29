@@ -9,6 +9,7 @@ export const TableWrapper = styled.div`
 export const Table = styled.table`
   width: 100%;
   border-collapse: collapse;
+  overflow-x: hidden;
 
   thead {
     width: 100%;
@@ -34,11 +35,26 @@ export const Table = styled.table`
     font-size: 16px;
     font-weight: 400;
     font-family: Poppins;
-    cursor: pointer;
+    /* cursor: pointer; */
   }
   tbody {
     tr:hover {
       background-color: #c5cfff;
+    }
+    tr {
+      position: relative;
+      height: 50px;
+      transition: background-color 0.3s ease;
+
+      .badge {
+        position: absolute;
+        top: 47%; /* Vertical center */
+        right: 1%; /* Horizontal center */
+        transform: translate(-50%, -50%); /* Center the badge */
+        width: 20px; /* Adjust size as needed */
+        height: 20px; /* Adjust size as needed */
+        z-index: 1; /* Ensure badge is above other content */
+      }
     }
   }
 `

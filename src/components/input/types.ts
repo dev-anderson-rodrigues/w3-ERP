@@ -5,5 +5,4 @@ export interface propsInput extends Omit<TextFieldProps, 'ref'> {
   type?: 'text' | 'password' | 'email'
   errors?: string
   password?: boolean
-  isValid?: boolean
 }

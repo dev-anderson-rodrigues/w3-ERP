@@ -21,8 +21,9 @@ export function setRemoveProfileLocalStorage() {
 export const login = async (data: IAuthUser): Promise<IUser | null> => {
   try {
     // Fazendo a requisição para obter usuários com o email fornecido
-    const response = await Api.get<IUser[]>(`login?email=${data.user}`)
+    const response = await Api.get<IUser[]>(`login?user=${data.user}`)
 
+    console.log(response)
     // Verificando se a senha está correta para o usuário com o email fornecido
     const user = response.data.find((user) => user.password === data.password)
 

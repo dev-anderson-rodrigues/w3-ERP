@@ -9,7 +9,6 @@ import NameTable from '../../../../components/Name_Table'
 import { useProduct } from '../../../../context/Products/useProducts'
 import { useCustomer } from '../../../../context/Customers/useCustomer'
 import { useState } from 'react'
-
 const TemplateDashboard = () => {
   const [productFilter, setProductFilter] = useState<'alta' | 'baixa'>('alta')
   const [customerFilter, setCustomerFilter] = useState<'alta' | 'baixa'>(
@@ -21,6 +20,7 @@ const TemplateDashboard = () => {
 
   const formatPercentage = (percentage: number | undefined) => {
     if (typeof percentage === 'number' && !isNaN(percentage)) {
+      percentage = percentage * 100
       return `${percentage.toFixed(2)}%`
     }
     return '0.00%'
@@ -38,8 +38,8 @@ const TemplateDashboard = () => {
   const sortedCustomers = customersList
     ? [...customersList].sort((a, b) => {
         return customerFilter === 'alta'
-          ? b.percentage - a.percentage
-          : a.percentage - b.percentage
+          ? b.percentage! - a.percentage!
+          : a.percentage! - b.percentage!
       })
     : []
 
@@ -47,14 +47,14 @@ const TemplateDashboard = () => {
     ID: item.id,
     Produto: item.name,
     Percentual: formatPercentage(item.percentage),
+    Qtd: item.amount,
   }))
-
   const customerTableData = sortedCustomers.slice(0, 11).map((item) => ({
     ID: item.id,
     Cliente: item.name,
     Percentual: formatPercentage(item.percentage),
+    Qtd: item.amount,
   }))
-
   return (
     <div>
       <ContainerBlue>

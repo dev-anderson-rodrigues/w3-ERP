@@ -3,7 +3,7 @@ export const AppContainer = styled.div`
   display: flex;
   gap: 10px;
   background-color: #02156a;
-  min-width: 150px;
+  min-width: 15%;
   height: 120px;
   align-items: center;
   justify-content: center;
@@ -19,12 +19,13 @@ export const AppContainer = styled.div`
     flex-direction: column;
     color: #c5cfff;
 
-    span {
+    .text {
       font-weight: 600;
       font-size: 16px;
       font-family: Poppins;
       letter-spacing: 0.2px;
       color: #c5cfff;
+      margin-bottom: 10px;
     }
     div {
       display: flex;
@@ -38,12 +39,10 @@ export const AppContainer = styled.div`
           font-size: 32px;
           font-family: Sora;
           color: #ffffff;
-          margin-top: 5px;
-          margin-left: 0;
+          margin: 0;
         }
       }
       .percentage {
-        background-color: #00c247;
         border-radius: 100px;
         width: 60px;
         height: 24px;
@@ -53,6 +52,7 @@ export const AppContainer = styled.div`
         font-size: 15px;
         font-family: Poppins;
         letter-spacing: 0.2px;
+        text-align: center;
       }
     }
   }

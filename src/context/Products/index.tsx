@@ -12,9 +12,9 @@ export const ProductProvider = ({
   children: React.ReactNode
 }) => {
   const [products, setProduct] = useState<IProduct[]>([])
-  const [customerProducts, setCustomerProducts] = useState<
-    IProduct[] | undefined
-  >(undefined)
+  const [customerProducts, setCustomerProducts] = useState<IProduct | null>(
+    null,
+  )
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -29,27 +29,32 @@ export const ProductProvider = ({
 
     fetchProducts()
   }, [])
-  useEffect(() => {
-    console.log('Produtos carregados:', products)
-  }, [products]) // Este useEffect será chamado toda vez que o estado de `products` mudar
 
   const getProductId = (data: IProduct) => {
-    // console.log('aqui esta o data', data)
-    // console.log(products)
-    // products
-    // Filtra o produto pelo id do produto passado
-    // Se existir, retorna esse produto, caso contrário, retorna undefined
     console.log('aqui esta o data', data)
-    if (products) {
-      const product = products.filter((p) => p.id === data.id)
-      console.log('aquii esta a função getProductId', product)
+
+    if (data) {
+      setCustomerProducts(() => data)
+      console.log('Produto atualizado:', data)
+    } else {
+      console.log('Produto não encontrado')
     }
   }
 
-  // console.log('AQUII ESTA O ESTADO DO GET BY ID PRODUTOS' + customerProducts)
+  // useEffect para monitorar mudanças no estado customerProducts
+  useEffect(() => {
+    console.log('aqui esta o customerProducts', customerProducts)
+  }, [customerProducts])
+
   return (
     <ProductsContext.Provider
-      value={{ products, setProduct, getProductId, customerProducts }}
+      value={{
+        products,
+        getProductId,
+        setCustomerProducts,
+        setProduct,
+        customerProducts,
+      }}
     >
       {children}
     </ProductsContext.Provider>

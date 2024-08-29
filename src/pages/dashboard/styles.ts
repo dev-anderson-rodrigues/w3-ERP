@@ -9,7 +9,7 @@ export const Container = styled.div`
 
   .content_pages {
     width: 100%;
-    height: auto;
+    min-height: 100vh;
     flex-direction: column;
     display: flex;
     margin: auto;
