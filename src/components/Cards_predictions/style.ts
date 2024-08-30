@@ -6,19 +6,24 @@ export const AppContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 260px;
-  height: 250px;
-  padding: 20px;
-  background-color: #eeeeee;
+  width: 18%;
+  height: 300px;
+  background-color: #ffffff;
   border-radius: 10px;
   cursor: pointer;
 
   .nameCard {
-    max-height: 100px;
+    height: 120px;
+    display: flex;
+    align-items: center;
     h4 {
       font-size: 16px;
       font-family: Poppins;
       font-weight: 600;
+      color: #212121;
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
     }
     img {
       background-color: #c5cfff;
@@ -55,6 +60,7 @@ export const AppContainer = styled.div`
     }
   }
   table {
+    background-color: #eeeeee;
     thead {
       background-color: #eeeeee;
     }

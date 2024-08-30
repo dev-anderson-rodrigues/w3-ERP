@@ -3,13 +3,15 @@ import styled from 'styled-components'
 export const TableWrapper = styled.div`
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
   overflow: hidden;
 `
 
 export const Table = styled.table`
   width: 100%;
   border-collapse: collapse;
-  overflow-x: hidden;
+  overflow: hidden;
 
   thead {
     width: 100%;

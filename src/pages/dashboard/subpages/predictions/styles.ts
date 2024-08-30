@@ -22,13 +22,15 @@ export const AppContainer = styled.div`
     height: 40px;
     border-radius: 20px;
     display: flex;
-    align-items: left;
+    width: auto;
+    align-items: center;
+    justify-content: left;
     box-shadow: 0px 4px 10px 0px #a3a3a333;
   }
   .containerCards {
     display: flex;
     flex-wrap: wrap;
-    gap: 25px;
+    gap: 30px;
     padding: 10px;
     height: 67vh;
     max-height: 67vh;

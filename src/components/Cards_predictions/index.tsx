@@ -6,13 +6,14 @@ import TableComponent from '../Table'
 import { useProduct } from '../../context/Products/useProducts'
 import { IProduct } from '../../context/Products/types'
 import { formatDate, sortProductsByNextPurchaseDate } from './utils'
-import { useCustomer } from '../../context/Customers/useCustomer'
-
-const CardsPredictions = () => {
+interface CardsPredictionsProps {
+  ID?: string | number
+  Cliente: string
+  Percentual?: string
+  Qtd?: number
+}
+const CardsPredictions: React.FC<CardsPredictionsProps> = ({ Cliente }) => {
   const { products } = useProduct()
-  const { customersList } = useCustomer()
-
-  // const customer = customersList.reduce((acc, customer) => customer.name)
 
   const productsObject: { [key: string]: IProduct } = products!.reduce(
     (acc, product) => {
@@ -29,7 +30,7 @@ const CardsPredictions = () => {
     <AppContainer>
       <div className="contentTopCard">
         <div className="nameCard">
-          <NameTable text="shgshs" img={user}>
+          <NameTable text={Cliente} img={user}>
             <div className="containerSatus">
               <div className="radial"></div>
               <p>Próxima Compra</p>
@@ -40,7 +41,7 @@ const CardsPredictions = () => {
       </div>
       <TableComponent
         columns={['Produto', 'Próx. compra']}
-        data={sortedProducts.map((product) => ({
+        data={sortedProducts.slice(0, 3).map((product) => ({
           Produto: product.name,
           'Próx. compra': formatDate(product.nextPurchase),
         }))}
