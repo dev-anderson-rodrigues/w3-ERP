@@ -34,6 +34,7 @@ export const ProductProvider = ({
     console.log('aqui esta o data', data)
 
     if (data) {
+      setCustomerProducts(null)
       setCustomerProducts(() => data)
       console.log('Produto atualizado:', data)
     } else {

@@ -15,10 +15,10 @@ const TableComponent = ({ columns, data }: TableProps) => {
   const handleClickFilter = (obj: { [key: string]: any }) => {
     if (isProduct(obj)) {
       getProductId(obj)
-      navigate(`product/${obj.id}`)
+      navigate(`product/${obj.ID}`)
     } else if (isCustomer(obj)) {
       getCustomerId(obj)
-      navigate(`client/${obj.id}`)
+      navigate(`client/${obj.ID}`)
     } else {
       console.log('Objeto não identificado:', obj)
     }

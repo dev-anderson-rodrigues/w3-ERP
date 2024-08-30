@@ -18,7 +18,8 @@ const Header = () => {
           <li
             style={{
               backgroundColor:
-                location.pathname === '/dashboard'
+                location.pathname === '/dashboard' ||
+                location.pathname.startsWith('/dashboard/product/')
                   ? 'rgba(118, 130, 193, 0.3)'
                   : '',
             }}
@@ -30,10 +31,11 @@ const Header = () => {
           </li>
           <li
             style={{
-              backgroundColor:
-                location.pathname === '/dashboard/Predictions'
-                  ? 'rgba(118, 130, 193, 0.3)'
-                  : '',
+              backgroundColor: location.pathname.startsWith(
+                '/dashboard/Predictions',
+              )
+                ? 'rgba(118, 130, 193, 0.3)'
+                : '',
             }}
           >
             <Link to="/dashboard/Predictions">

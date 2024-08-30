@@ -1,13 +1,20 @@
 import { Dispatch, SetStateAction } from 'react'
 
-export interface ICustomer {
+export interface ICustomer extends Customer {
   id: string | number
   percentage: number
   amount: number
   name: string
-  Cliente?: string
   phone?: number
   email?: string
+}
+export interface Customer {
+  ID?: string | number
+  Percentual?: number
+  Cliente?: string
+  Qtd?: number
+  Phone?: string
+  Email?: string
 }
 export interface ICustomersContext {
   customersList: ICustomer[]

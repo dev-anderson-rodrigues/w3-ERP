@@ -7,6 +7,7 @@ import ElementIndexDashboard from '../pages/dashboard/subpages/dashboard'
 import Login from '../pages/login'
 import GetById from '../pages/dashboard/subpages/getById'
 import Predictions from '../pages/dashboard/subpages/predictions'
+import PredictionById from '../pages/dashboard/subpages/predictions/subpages'
 
 const AppRoutes = () => {
   return (
@@ -16,7 +17,10 @@ const AppRoutes = () => {
         <Route element={<ProtectRoute />}>
           <Route path="dashboard" element={<Dashboard />}>
             <Route index element={<ElementIndexDashboard />} />
-            <Route path="Predictions" element={<Predictions />} />
+            <Route path="predictions">
+              <Route index element={<Predictions />} />
+              <Route path=":id" element={<PredictionById />} />
+            </Route>
             <Route
               path="products"
               element={<h1>aqui esta o componente de produtos</h1>}

@@ -3,12 +3,14 @@ import CardsPredictions from '../../../../components/Cards_predictions'
 import Input from '../../../../components/Input'
 import { AppContainer } from './styles'
 import { useCustomer } from '../../../../context/Customers/useCustomer'
+import iconSearch from '../../../../assets/icons/search.png'
+import { useNavigate } from 'react-router-dom'
+import { isCustomer } from './utils'
 
 const Predictions = () => {
-  const [customerFilter, setCustomerFilter] = useState<'alta' | 'baixa'>(
-    'baixa',
-  )
-  const { customersList } = useCustomer()
+  const [customerFilter] = useState<'alta' | 'baixa'>('baixa')
+  const { customersList, getCustomerId } = useCustomer()
+  const navigate = useNavigate()
 
   const formatPercentage = (percentage: number | undefined) => {
     if (typeof percentage === 'number' && !isNaN(percentage)) {
@@ -30,8 +32,16 @@ const Predictions = () => {
     Cliente: item.name,
     Percentual: formatPercentage(item.percentage),
     Qtd: item.amount,
+    Phone: item.phone,
+    Email: item.email,
   }))
 
+  const handleClickFilter = (obj: { [key: string]: any }) => {
+    if (isCustomer(obj)) {
+      getCustomerId(obj)
+      navigate(`${obj.ID}`)
+    }
+  }
   return (
     <AppContainer>
       <h4 className="title">Predições</h4>
@@ -60,6 +70,7 @@ const Predictions = () => {
             },
           }}
         />
+        <img src={iconSearch} />
       </div>
 
       <div className="containerCards">
@@ -70,6 +81,7 @@ const Predictions = () => {
             Cliente={card.Cliente}
             Percentual={card.Percentual}
             Qtd={card.Qtd}
+            onClick={() => handleClickFilter(card)}
           />
         ))}
       </div>

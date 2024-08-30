@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { Container } from './styles'
 
 interface propsComponent {
@@ -5,12 +6,20 @@ interface propsComponent {
   img: string
   children?: React.ReactNode
   key?: string | number
+  link?: string
 }
 
-const NameTable = ({ text, img, children, key }: propsComponent) => {
+const NameTable = ({ text, img, children, link, key }: propsComponent) => {
   return (
     <Container>
-      <img src={img} alt={'icone' + text} />
+      {link ? (
+        <Link to={link} rel="noopener noreferrer">
+          <img src={img} alt={'icone' + text} />
+        </Link>
+      ) : (
+        <img src={img} alt={'icone' + text} />
+      )}
+
       <div>
         <h4 key={key}>{text}</h4>
         {children}

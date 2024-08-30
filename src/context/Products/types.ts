@@ -2,6 +2,7 @@ import { Dispatch, SetStateAction } from 'react'
 
 export interface IProduct {
   id: string | number
+  ID?: string
   percentage: number | undefined
   amount: number
   name: string

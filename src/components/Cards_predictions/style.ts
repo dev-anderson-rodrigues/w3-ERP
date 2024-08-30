@@ -8,7 +8,10 @@ export const AppContainer = styled.div`
   align-items: center;
   width: 18%;
   height: 300px;
+  padding-top: 10px;
+  padding-bottom: 20px;
   background-color: #ffffff;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 8px 0px;
   border-radius: 10px;
   cursor: pointer;
 
@@ -71,6 +74,11 @@ export const AppContainer = styled.div`
       font-weight: 400;
       line-height: 19.6px;
       letter-spacing: 0.2px;
+    }
+    tbody {
+      td {
+        width: 100%;
+      }
     }
   }
 `

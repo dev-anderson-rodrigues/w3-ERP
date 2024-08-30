@@ -26,6 +26,14 @@ export const AppContainer = styled.div`
     align-items: center;
     justify-content: left;
     box-shadow: 0px 4px 10px 0px #a3a3a333;
+    position: relative;
+
+    img {
+      position: absolute;
+      left: 370px;
+      top: 2;
+      cursor: pointer;
+    }
   }
   .containerCards {
     display: flex;

@@ -37,6 +37,7 @@ export const CustomerProvider = ({
     console.log('aqui esta o data', data)
 
     if (data) {
+      setCustomersClient(null)
       setCustomersClient(() => data)
       console.log('Cliente atualizado:', data)
     } else {
