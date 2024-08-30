@@ -3,10 +3,10 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Dashboard from '../pages/dashboard'
 import ProtectRoute from '../components/Protect_routes'
 import NotFound from '../pages/notFound'
-import TemplateDashboard from '../pages/dashboard/subpages/dashboard'
+import ElementIndexDashboard from '../pages/dashboard/subpages/dashboard'
 import Login from '../pages/login'
-import GetById from '../components/Get_By_Id'
-// import Get_By_Id from '../components/Get_By_Id'
+import GetById from '../pages/dashboard/subpages/getById'
+import Predictions from '../pages/dashboard/subpages/predictions'
 
 const AppRoutes = () => {
   return (
@@ -15,11 +15,8 @@ const AppRoutes = () => {
         <Route index element={<Login />} />
         <Route element={<ProtectRoute />}>
           <Route path="dashboard" element={<Dashboard />}>
-            <Route index element={<TemplateDashboard />} />
-            <Route
-              path="Predictions"
-              element={<h1>aqui esta o componente</h1>}
-            />
+            <Route index element={<ElementIndexDashboard />} />
+            <Route path="Predictions" element={<Predictions />} />
             <Route
               path="products"
               element={<h1>aqui esta o componente de produtos</h1>}

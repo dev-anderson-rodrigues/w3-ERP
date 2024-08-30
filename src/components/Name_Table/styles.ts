@@ -13,12 +13,13 @@ export const Container = styled.div`
     height: 24px; /* altura da imagem */
   }
 
-  h4 {
+  div h4 {
     margin-left: 10px;
     font-family: Sora;
     letter-spacing: 0.2px;
     color: #212121;
     font-weight: 700;
     font-size: 20px;
+    margin: 0;
   }
 `

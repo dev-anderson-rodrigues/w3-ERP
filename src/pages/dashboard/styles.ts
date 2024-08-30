@@ -8,7 +8,7 @@ export const Container = styled.div`
   align-items: center;
 
   .content_pages {
-    width: 100%;
+    width: 88.5vw;
     min-height: 100vh;
     flex-direction: column;
     display: flex;

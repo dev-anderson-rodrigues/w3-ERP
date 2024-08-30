@@ -9,7 +9,7 @@ import NameTable from '../../../../components/Name_Table'
 import { useProduct } from '../../../../context/Products/useProducts'
 import { useCustomer } from '../../../../context/Customers/useCustomer'
 import { useState } from 'react'
-const TemplateDashboard = () => {
+const ElementIndexDashboard = () => {
   const [productFilter, setProductFilter] = useState<'alta' | 'baixa'>('alta')
   const [customerFilter, setCustomerFilter] = useState<'alta' | 'baixa'>(
     'baixa',
@@ -121,4 +121,4 @@ const TemplateDashboard = () => {
   )
 }
 
-export default TemplateDashboard
+export default ElementIndexDashboard

@@ -15,10 +15,10 @@ export const StyledTextField = styled(TextField)<propsInput>(() => ({
     height: '60px',
   },
   '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
-    borderColor: '#4CAF50', // Muda a cor da borda para verde quando focado'
+    borderColor: '#4CAF50',
   },
   '& .MuiFormLabel-root.Mui-focused': {
-    color: '#4CAF50', // Cor da label quando o input está em foco
+    color: '#4CAF50',
   },
   '& .MuiOutlinedInput-root.Mui-focused': {
     outline: 'none',

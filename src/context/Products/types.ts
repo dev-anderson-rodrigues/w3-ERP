@@ -6,8 +6,8 @@ export interface IProduct {
   amount: number
   name: string
   Produto?: string
-  lastPurchased?: string
-  nextPurchased?: string
+  lastPurchase: string
+  nextPurchase: string
 }
 
 export interface IProductContext {
