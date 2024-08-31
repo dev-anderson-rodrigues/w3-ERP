@@ -9,6 +9,7 @@ import NameTable from '../../../../components/Name_Table'
 import { useProduct } from '../../../../context/Products/useProducts'
 import { useCustomer } from '../../../../context/Customers/useCustomer'
 import { useState } from 'react'
+
 const ElementIndexDashboard = () => {
   const [productFilter, setProductFilter] = useState<'alta' | 'baixa'>('alta')
   const [customerFilter, setCustomerFilter] = useState<'alta' | 'baixa'>(
@@ -45,13 +46,13 @@ const ElementIndexDashboard = () => {
 
   const productTableData = sortedProducts.slice(0, 11).map((item) => ({
     ID: item.id,
-    Produto: item.name,
+    Produto: <div className="columnNameTable">{item.name}</div>,
     Percentual: formatPercentage(item.percentage),
     Qtd: item.amount,
   }))
   const customerTableData = sortedCustomers.slice(0, 11).map((item) => ({
     ID: item.id,
-    Cliente: item.name,
+    Cliente: <div className="columnNameTable">{item.name}</div>,
     Percentual: formatPercentage(item.percentage),
     Qtd: item.amount,
   }))
@@ -99,7 +100,11 @@ const ElementIndexDashboard = () => {
             />
           </div>
           <TableComponent
-            columns={['ID', 'Produto', 'Percentual']}
+            columns={[
+              { header: 'ID', className: 'id_column' },
+              { header: 'Produto', className: 'produto-column' },
+              { header: 'Percentual', className: 'percentege-column' },
+            ]}
             data={productTableData}
           />
         </div>
@@ -112,7 +117,11 @@ const ElementIndexDashboard = () => {
             />
           </div>
           <TableComponent
-            columns={['ID', 'Cliente', 'Percentual']}
+            columns={[
+              { header: 'ID', className: 'id_column' },
+              { header: 'Cliente', className: 'client-column' },
+              { header: 'Percentual', className: 'percentege-column' },
+            ]}
             data={customerTableData}
           />
         </div>

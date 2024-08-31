@@ -41,13 +41,17 @@ export const ContainerTables = styled.div`
   display: flex;
   padding: 20px;
   gap: 20px;
+  justify-content: center;
   height: 546px;
   margin-top: 10px;
   overflow-y: scroll;
 
   table {
+    width: 41vw;
+    thead {
+      width: 20px;
+    }
     th {
-      width: 50vw;
       max-width: 50vw;
     }
   }
@@ -77,5 +81,23 @@ export const ContainerTables = styled.div`
   }
   @media (min-width: 1400px) {
     gap: 50px;
+  }
+  .columnNameTable {
+    width: 100%;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    padding-left: 70px;
+  }
+
+  .id_column {
+    width: 10%;
+  }
+  .client-column,
+  .produto-column {
+    width: 30%;
+  }
+  .percentege-column {
+    width: 60%;
   }
 `

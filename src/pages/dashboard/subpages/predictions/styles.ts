@@ -1,7 +1,5 @@
 import styled from 'styled-components'
 
-// Define a styled component for the App container
-
 export const AppContainer = styled.div`
   margin-left: 20px;
   margin-right: 20px;

@@ -84,13 +84,14 @@ export const Container = styled.div`
 export const ContainerTables = styled.div`
   display: flex;
   padding-top: 20px;
-  gap: 20px;
+  justify-content: space-around;
+  margin-right: 10px;
   height: 100%;
   margin-bottom: 6.5%;
 
   table {
+    width: 41vw;
     th {
-      width: 50vw;
       max-width: 50vw;
     }
   }
@@ -99,6 +100,7 @@ export const ContainerTables = styled.div`
       display: flex;
       align-items: center;
       justify-content: space-between;
+      margin-bottom: 10px;
 
       img {
         background-color: #ff3333;
@@ -110,6 +112,7 @@ export const ContainerTables = styled.div`
       display: flex;
       align-items: center;
       justify-content: space-between;
+      margin-bottom: 10px;
 
       img {
         background-color: #00c247;
@@ -117,6 +120,25 @@ export const ContainerTables = styled.div`
         border-radius: 8px;
       }
     }
+  }
+
+  .columnNameTable {
+    width: 100%;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    padding-left: 65px;
+  }
+
+  .id_column {
+    width: 10%;
+  }
+  .client-column,
+  .produto-column {
+    width: 30%;
+  }
+  .percentege-column {
+    width: 50%;
   }
   @media (min-width: 1400px) {
     gap: 50px;

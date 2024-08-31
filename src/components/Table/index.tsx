@@ -31,7 +31,9 @@ const TableComponent = ({ columns, data }: TableProps) => {
         <thead>
           <tr>
             {columns.map((column, index) => (
-              <th key={index}>{column}</th>
+              <th key={index} className={column.className}>
+                {column.header}
+              </th>
             ))}
           </tr>
         </thead>
@@ -48,7 +50,7 @@ const TableComponent = ({ columns, data }: TableProps) => {
                   key={j}
                   style={{ cursor: shouldHandleClick ? 'pointer' : 'default' }}
                 >
-                  {row[col] !== undefined ? row[col] : 'N/A'}
+                  {row[col.header] !== undefined ? row[col.header] : 'N/A'}
                 </td>
               ))}
               {shouldHandleClick && (

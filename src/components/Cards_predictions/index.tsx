@@ -39,7 +39,7 @@ const CardsPredictions: React.FC<CardsPredictionsProps> = ({
         <img src={imgRightArrow} className="rightArrow" />
       </div>
       <TableComponent
-        columns={['Produto', 'Próx. compra']}
+        columns={[{ header: 'Produto' }, { header: 'Próx. compra' }]}
         data={sortedProducts.slice(0, 3).map((product) => ({
           Produto: (
             <div style={{ textAlign: 'left', paddingLeft: '25px' }}>

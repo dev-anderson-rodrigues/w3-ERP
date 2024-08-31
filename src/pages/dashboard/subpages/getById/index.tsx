@@ -25,7 +25,7 @@ const GetById = () => {
     .slice(0, 5)
     .map((item) => ({
       ID: item.id,
-      Cliente: item.name,
+      Cliente: <div className="columnNameTable">{item.name}</div>,
       Percentual: formatPercentage(item.percentage),
       Qtd: item.amount !== undefined ? item.amount : 'N/A', // Verificação para 'undefined'
     }))
@@ -34,7 +34,7 @@ const GetById = () => {
     .slice(0, 5)
     .map((item) => ({
       ID: item.id,
-      Cliente: item.name,
+      Cliente: <div className="columnNameTable">{item.name}</div>,
       Percentual: formatPercentage(item.percentage),
       Qtd: item.amount !== undefined ? item.amount : 'N/A',
     }))
@@ -43,7 +43,7 @@ const GetById = () => {
     .slice(0, 5)
     .map((item) => ({
       ID: item.id,
-      Produto: item.name,
+      Produto: <div className="columnNameTable">{item.name}</div>,
       Percentual: formatPercentage(item.percentage),
       Qtd: item.amount !== undefined ? item.amount : 'N/A',
     }))
@@ -52,7 +52,7 @@ const GetById = () => {
     .slice(0, 5)
     .map((item) => ({
       ID: item.id,
-      Produto: item.name,
+      Produto: <div className="columnNameTable">{item.name}</div>,
       Percentual: formatPercentage(item.percentage),
       Qtd: item.amount !== undefined ? item.amount : 'N/A',
     }))
@@ -112,7 +112,12 @@ const GetById = () => {
                 <NameTable text="Clientes em baixa" img={icon1} />
               </div>
               <TableComponent
-                columns={['ID', 'Cliente', 'Percentual', 'Qtd']}
+                columns={[
+                  { header: 'ID', className: 'id_column' },
+                  { header: 'Cliente', className: 'client-column' },
+                  { header: 'Percentual', className: 'percentege-column' },
+                  { header: 'Qtd', className: 'Qtd-column' },
+                ]}
                 data={customerTableLow}
               />
             </div>
@@ -121,7 +126,12 @@ const GetById = () => {
                 <NameTable text="Clientes em alta" img={Icon2} />
               </div>
               <TableComponent
-                columns={['ID', 'Cliente', 'Percentual', 'Qtd']}
+                columns={[
+                  { header: 'ID', className: 'id_column' },
+                  { header: 'Cliente', className: 'client-column' },
+                  { header: 'Percentual', className: 'percentege-column' },
+                  { header: 'Qtd', className: 'Qtd-column' },
+                ]}
                 data={customerTableHigh}
               />
             </div>
@@ -135,7 +145,12 @@ const GetById = () => {
                 <NameTable text="Produtos em baixa" img={icon1} />
               </div>
               <TableComponent
-                columns={['ID', 'Produto', 'Percentual', 'Qtd']}
+                columns={[
+                  { header: 'ID' },
+                  { header: 'Produto' },
+                  { header: 'Percentual' },
+                  { header: 'Qtd' },
+                ]}
                 data={productTableLow}
               />
             </div>
@@ -144,7 +159,12 @@ const GetById = () => {
                 <NameTable text="Produtos em alta" img={Icon2} />
               </div>
               <TableComponent
-                columns={['ID', 'Produto', 'Percentual', 'Qtd']}
+                columns={[
+                  { header: 'ID' },
+                  { header: 'Produto' },
+                  { header: 'Percentual' },
+                  { header: 'Qtd' },
+                ]}
                 data={productTableHigh}
               />
             </div>
