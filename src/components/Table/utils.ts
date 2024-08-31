@@ -1,22 +1,24 @@
-import { ICustomer } from '../../context/Customers/types'
-import { IProduct } from '../../context/Products/types'
+import React from 'react'
+import { Customer } from '../../context/Customers/types'
+import { ProductCustom } from '../../context/Products/types'
 
-export const isProduct = (obj: any): obj is IProduct => {
+export const isProduct = (obj: any): obj is ProductCustom => {
   return (
     obj &&
-    'ID' in obj &&
-    'Percentual' in obj &&
-    'Produto' in obj &&
-    'Qtd' in obj
+    (typeof obj.Produto === 'string' || React.isValidElement(obj.Produto)) &&
+    typeof obj.ID === 'number' &&
+    (obj.Percentual === undefined || typeof obj.Percentual === 'string') &&
+    (obj.Qtd === undefined || typeof obj.Qtd === 'number') &&
+    (obj.Status === undefined || React.isValidElement(obj.Status))
   )
 }
 
-export const isCustomer = (obj: any): obj is ICustomer => {
+export const isCustomer = (obj: any): obj is Customer => {
   return (
     obj &&
-    'ID' in obj &&
-    'Cliente' in obj &&
-    'Percentual' in obj &&
-    'Qtd' in obj
+    React.isValidElement(obj.Cliente) &&
+    typeof obj.ID === 'number' &&
+    (obj.Percentual === undefined || typeof obj.Percentual === 'string') &&
+    (obj.Qtd === undefined || typeof obj.Qtd === 'number')
   )
 }

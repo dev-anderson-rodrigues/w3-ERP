@@ -15,7 +15,12 @@ const TableComponent = ({ columns, data }: TableProps) => {
   const handleClickFilter = (obj: { [key: string]: any }) => {
     if (isProduct(obj)) {
       getProductId(obj)
-      navigate(`product/${obj.ID}`)
+
+      if (location.pathname === '/dashboard/products') {
+        navigate(`/dashboard/product/${obj.ID}`)
+      } else {
+        navigate(`product/${obj.ID}`)
+      }
     } else if (isCustomer(obj)) {
       getCustomerId(obj)
       navigate(`client/${obj.ID}`)
@@ -24,7 +29,9 @@ const TableComponent = ({ columns, data }: TableProps) => {
     }
   }
 
-  const shouldHandleClick = location.pathname === '/dashboard'
+  const shouldHandleClick =
+    location.pathname === '/dashboard' ||
+    location.pathname === '/dashboard/products'
   return (
     <TableWrapper>
       <Table>

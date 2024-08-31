@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from 'react'
-import { IProduct, IProductContext } from './types'
+import { IProduct, IProductContext, ProductCustom } from './types'
 import { Api } from '../../services/api'
 
 export const ProductsContext = createContext<IProductContext>(
@@ -12,9 +12,8 @@ export const ProductProvider = ({
   children: React.ReactNode
 }) => {
   const [products, setProduct] = useState<IProduct[]>([])
-  const [customerProducts, setCustomerProducts] = useState<IProduct | null>(
-    null,
-  )
+  const [customerProducts, setCustomerProducts] =
+    useState<ProductCustom | null>(null)
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -30,7 +29,7 @@ export const ProductProvider = ({
     fetchProducts()
   }, [])
 
-  const getProductId = (data: IProduct) => {
+  const getProductId = (data: ProductCustom) => {
     console.log('aqui esta o data', data)
 
     if (data) {

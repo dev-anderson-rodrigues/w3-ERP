@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
-// import Login from '../pages/login'
 import Dashboard from '../pages/dashboard'
 import ProtectRoute from '../components/Protect_routes'
 import NotFound from '../pages/notFound'
@@ -8,10 +7,13 @@ import Login from '../pages/login'
 import GetById from '../pages/dashboard/subpages/getById'
 import Predictions from '../pages/dashboard/subpages/predictions'
 import PredictionById from '../pages/dashboard/subpages/predictions/subpages'
+import ProductsPage from '../pages/dashboard/subpages/products'
+import RedirectOnRefresh from '../components/RedirectOnRefresh'
 
 const AppRoutes = () => {
   return (
     <Router>
+      <RedirectOnRefresh />
       <Routes>
         <Route index element={<Login />} />
         <Route element={<ProtectRoute />}>
@@ -21,10 +23,7 @@ const AppRoutes = () => {
               <Route index element={<Predictions />} />
               <Route path=":id" element={<PredictionById />} />
             </Route>
-            <Route
-              path="products"
-              element={<h1>aqui esta o componente de produtos</h1>}
-            />
+            <Route path="products" element={<ProductsPage />} />
             <Route path="product/:id" element={<GetById />} />
             <Route path="client/:id" element={<GetById />} />
           </Route>

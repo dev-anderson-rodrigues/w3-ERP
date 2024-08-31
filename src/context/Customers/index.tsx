@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from 'react'
-import { ICustomer, ICustomersContext } from './types'
+import { Customer, ICustomer, ICustomersContext } from './types'
 import { Api } from '../../services/api'
 
 export const CustomersContext = createContext<ICustomersContext | undefined>(
@@ -11,7 +11,7 @@ export const CustomerProvider = ({
   children: React.ReactNode
 }) => {
   const [customersList, setCustomersList] = useState<ICustomer[]>([])
-  const [customersClient, setCustomersClient] = useState<ICustomer | null>(null)
+  const [customersClient, setCustomersClient] = useState<Customer | null>(null)
 
   useEffect(() => {
     const fetchCustomers = async () => {
@@ -33,7 +33,7 @@ export const CustomerProvider = ({
     fetchCustomers()
   }, [])
 
-  const getCustomerId = (data: ICustomer) => {
+  const getCustomerId = (data: Customer) => {
     console.log('aqui esta o data', data)
 
     if (data) {

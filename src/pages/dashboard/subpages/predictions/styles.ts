@@ -13,26 +13,6 @@ export const AppContainer = styled.div`
     color: #212121;
     line-height: 48px;
   }
-  .containerFilter {
-    background-color: #ffffff;
-    margin-bottom: 20px;
-    padding: 10px;
-    height: 40px;
-    border-radius: 20px;
-    display: flex;
-    width: auto;
-    align-items: center;
-    justify-content: left;
-    box-shadow: 0px 4px 10px 0px #a3a3a333;
-    position: relative;
-
-    img {
-      position: absolute;
-      left: 370px;
-      top: 2;
-      cursor: pointer;
-    }
-  }
   .containerCards {
     display: flex;
     flex-wrap: wrap;

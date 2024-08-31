@@ -21,11 +21,11 @@ const PredictionById = () => {
 
   const sortedProducts = products
     ? [...products].sort((a, b) => {
-        const dateA = new Date(a.lastPurchase!) // Converte para Date
-        const dateB = new Date(b.lastPurchase!) // Converte para Date
+        const dateA = new Date(a.lastPurchase!)
+        const dateB = new Date(b.lastPurchase!)
 
         return productRef.current === tomorrow
-          ? dateA.getTime() - dateB.getTime() // Usa getTime() para subtrair timestamps
+          ? dateA.getTime() - dateB.getTime()
           : dateB.getTime() - dateA.getTime()
       })
     : []

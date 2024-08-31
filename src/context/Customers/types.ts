@@ -5,13 +5,13 @@ export interface ICustomer extends Customer {
   percentage: number
   amount: number
   name: string
-  phone?: number
-  email?: string
+  phone: number
+  email: string
 }
-export interface Customer {
-  ID?: string | number
+export type Customer = {
+  ID: string | number
   Percentual?: number
-  Cliente?: string
+  Cliente: string
   Qtd?: number
   Phone?: string
   Email?: string
@@ -19,7 +19,7 @@ export interface Customer {
 export interface ICustomersContext {
   customersList: ICustomer[]
   setCustomersList: Dispatch<SetStateAction<ICustomer[]>>
-  setCustomersClient: Dispatch<SetStateAction<ICustomer | null>>
-  getCustomerId: (data: ICustomer) => void
-  customersClient: ICustomer | null
+  setCustomersClient: Dispatch<SetStateAction<Customer | null>>
+  getCustomerId: (data: Customer) => void
+  customersClient: Customer | null
 }
