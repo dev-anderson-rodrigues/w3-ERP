@@ -66,4 +66,54 @@ export const AppContainer = styled.div`
   .produto-column {
     width: 30%;
   }
+  .containerPaginationTable {
+    background-color: #fafafa;
+    margin-top: 10px;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    span {
+      margin-right: 50px;
+      margin-left: 50px;
+    }
+    .span-left {
+      display: flex;
+      gap: 10px;
+      color: #9e9e9e;
+      font-size: 14px;
+      font-family: Poppins;
+      line-height: 19.6px;
+      font-weight: 400;
+    }
+    .span-right {
+      display: flex;
+      height: 100%;
+      align-items: center;
+      gap: 10px;
+      color: #9e9e9e;
+      font-size: 14px;
+      font-family: Poppins;
+      line-height: 19.6px;
+      font-weight: 400;
+
+      .pages-select {
+        display: flex;
+        gap: 10px;
+        height: 100%;
+        align-items: center;
+
+        .selected {
+          background-color: #001c98;
+          padding: 4px 9px;
+          border-radius: 10%;
+        }
+      }
+    }
+    img {
+      cursor: pointer;
+    }
+  }
 `

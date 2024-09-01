@@ -62,7 +62,7 @@ const TableComponent = ({ columns, data }: TableProps) => {
               ))}
               {shouldHandleClick && (
                 <span className="badge">
-                  <img src={iconRightSmall} alt="" />
+                  <img src={iconRightSmall} />
                 </span>
               )}
             </tr>
