@@ -9,10 +9,13 @@ import { useAuth } from '../../context/AuthContext/useAuth'
 import { useForm } from 'react-hook-form'
 import Input from '../Input'
 import { IAuthUser } from '../../context/AuthContext/types'
+import { toast } from 'react-toastify'
 
 const FormLogin = () => {
   const { login, setRememberMe, rememberMe } = useAuth()
-  const [errorMessage, setErrorMessage] = useState<string | null>(null)
+  const [errorMessage, setErrorMessage] = useState<string | undefined>(
+    undefined,
+  )
 
   const {
     handleSubmit,
@@ -47,11 +50,13 @@ const FormLogin = () => {
       const response = await login(credentials)
       if (response) {
         setIsAuthenticated(() => true)
+        toast.success('Seja bem vindo! login realizado com sucesso.')
         setTimeout(() => {
           navigate('/dashboard')
         }, 1000)
       }
     } catch (error) {
+      toast.error('Email ou senha inválidos. Tente novamente.')
       if (error instanceof Error) setErrorMessage(error.message)
     }
   }
@@ -65,6 +70,7 @@ const FormLogin = () => {
           <Input
             label="E-mail"
             password={false}
+            errorMessage={errorMessage}
             autoComplete="current-email"
             {...register('user', {
               required: 'Email é obrigatório',
@@ -79,6 +85,7 @@ const FormLogin = () => {
 
           <Input
             label="Senha"
+            errorMessage={errorMessage}
             password={true}
             autoComplete="current-password"
             {...register('password', {
@@ -99,7 +106,9 @@ const FormLogin = () => {
           </button>
 
           {errorMessage && (
-            <div style={{ maxWidth: '85%' }}>{errorMessage}</div>
+            <div style={{ maxWidth: '85%', textAlign: 'center', color: 'red' }}>
+              {errorMessage}
+            </div>
           )}
 
           <div className="container_link">

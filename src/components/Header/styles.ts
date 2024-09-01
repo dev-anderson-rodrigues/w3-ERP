@@ -61,16 +61,30 @@ export const AppContainer = styled.div`
       }
     }
     .logout {
-      button {
-        width: 100%;
-        height: 30px;
-        color: white;
-        font-size: 14px;
-        font-family: Poppins;
-        background-color: #001c98;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      gap: 10px;
+      top: 60px;
+      right: 15px;
+      background-color: #ffffff;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: rgba(99, 99, 99, 0.5) 0px 2px 8px 2px;
+      div {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        p {
+          color: #757575;
+          font-size: 16px;
+          font-family: Poppins;
+          cursor: pointer;
+          transition: color 0.3s ease;
+          line-height: 24px;
+          font-weight: 400;
+        }
       }
     }
   }

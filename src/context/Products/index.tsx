@@ -30,21 +30,16 @@ export const ProductProvider = ({
   }, [])
 
   const getProductId = (data: ProductCustom) => {
-    console.log('aqui esta o data', data)
-
     if (data) {
       setCustomerProducts(null)
       setCustomerProducts(() => data)
-      console.log('Produto atualizado:', data)
     } else {
       console.log('Produto não encontrado')
     }
   }
 
   // useEffect para monitorar mudanças no estado customerProducts
-  useEffect(() => {
-    console.log('aqui esta o customerProducts', customerProducts)
-  }, [customerProducts])
+  useEffect(() => {}, [customerProducts])
 
   return (
     <ProductsContext.Provider

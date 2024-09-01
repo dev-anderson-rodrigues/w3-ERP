@@ -13,6 +13,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false)
   const [rememberMe, setRememberMe] = useState(false)
   const [user, setUser] = useState<IUser | null>(null)
+  const [showLogoutMenu, setShowLogoutMenu] = useState(false)
 
   useEffect(() => {
     const user = getDadosProfileLocalStorage()
@@ -24,9 +25,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   }, [])
 
   const login = async (payload: IAuthUser) => {
-    console.log(payload)
     const user = await apiLogin(payload)
-    console.log('aqui' + user)
 
     setUser(user)
     setDadosProfileLocalStorage(user)
@@ -41,6 +40,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     }
     setUser(null)
     setIsAuthenticated(false)
+    setShowLogoutMenu(false)
   }
 
   return (
@@ -54,6 +54,8 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         logout,
         rememberMe,
         setRememberMe,
+        setShowLogoutMenu,
+        showLogoutMenu,
       }}
     >
       {children}

@@ -20,6 +20,7 @@ export const AppContainer = styled.div`
     margin-bottom: 20px;
 
     .iconPageProducts {
+      position: relative;
       img {
         width: 24px;
         height: 24px;
@@ -28,6 +29,11 @@ export const AppContainer = styled.div`
         border-radius: 10px;
         background-color: #f5f5f5;
       }
+    }
+    .containerFilter {
+      position: absolute;
+      left: -10px;
+      z-index: 9999;
     }
   }
   .status_high,
@@ -58,7 +64,7 @@ export const AppContainer = styled.div`
     text-align: left;
     display: flex;
     align-items: center;
-    padding-left: 202px;
+    padding-left: 215px;
   }
   .id_column {
     width: 10%;
@@ -110,10 +116,26 @@ export const AppContainer = styled.div`
           padding: 4px 9px;
           border-radius: 10%;
         }
+        .page_number {
+          color: #9e9e9e;
+          font-size: 14px;
+          font-family: Poppins;
+          line-height: 19.6px;
+          font-weight: 400;
+        }
       }
     }
     img {
       cursor: pointer;
+    }
+  }
+  table {
+    tbody {
+      tr {
+        td {
+          padding: 0;
+        }
+      }
     }
   }
 `

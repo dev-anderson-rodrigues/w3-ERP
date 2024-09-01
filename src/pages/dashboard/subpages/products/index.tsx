@@ -6,12 +6,18 @@ import { useProduct } from '../../../../context/Products/useProducts'
 import { useRef, useState } from 'react'
 import iconChevronLeft from '../../../../assets/icons/chevron left.png'
 import iconChevronRight from '../../../../assets/icons/chevron right.png'
+import Filter_All_High_or_low from '../../../../components/Filter_high_low'
 
 const ProductsPage = () => {
   const productRef = useRef(0)
   const { products } = useProduct()
   const [page, setPage] = useState(0)
-  const rowsPerPage = useRef(9)
+  const rowsPerPage = useRef(10)
+  const [isFilterVisible, setIsFilterVisible] = useState(false)
+  const [filterStatus, setFilterStatus] = useState<'all' | 'high' | 'low'>(
+    'all',
+  )
+  const [search, setSearch] = useState('')
 
   const formatPercentage = (percentage: number | undefined) => {
     if (typeof percentage === 'number' && !isNaN(percentage)) {
@@ -27,6 +33,19 @@ const ProductsPage = () => {
   const sortedProducts = products
     ? [...products]
         .filter((product) => product.id !== 0)
+        .filter((product) => {
+          const { value } = formatPercentage(product.percentage)
+
+          // Aplicando o filtro com base no status
+          if (filterStatus === 'high') return value > 0
+          if (filterStatus === 'low') return value <= 0
+          return true // 'all' - sem filtro
+        })
+        .filter((product) =>
+          search
+            ? product.name.toLowerCase().includes(search.toLowerCase())
+            : true,
+        )
         .sort((a, b) => {
           const idA = Number(a.id)
           const idB = Number(b.id)
@@ -35,6 +54,7 @@ const ProductsPage = () => {
         })
     : []
 
+  const totalPages = Math.ceil(sortedProducts.length / rowsPerPage.current)
   // Função para ir para a página anterior
   const goToPreviousPage = () => {
     setPage((prevPage) => Math.max(prevPage - 1, 0))
@@ -43,10 +63,11 @@ const ProductsPage = () => {
   // Função para ir para a próxima página
   const goToNextPage = () => {
     setPage((prevPage) =>
-      Math.min(
-        prevPage + 1,
-        Math.ceil(products!.length / rowsPerPage.current) - 1,
-      ),
+      // Math.min(
+      //   prevPage + 1,
+      //   Math.ceil(products!.length / rowsPerPage.current) - 1,
+      // ),
+      Math.min(prevPage + 1, totalPages - 1),
     )
   }
   // Produtos para exibir na página atual
@@ -71,8 +92,14 @@ const ProductsPage = () => {
       }
     })
   // Número total de páginas
-  const totalPages = Math.ceil(products!.length / rowsPerPage.current)
+  // const totalPages = Math.ceil(products!.length / rowsPerPage.current)
 
+  // Calcular o número de itens exibidos na página atual
+  const startItem = page * rowsPerPage.current + 1
+  const endItem = Math.min(
+    startItem + currentProducts.length - 1,
+    sortedProducts.length,
+  )
   // Páginas de visualização (4 páginas em torno da página atual)
   const getPaginationPreview = () => {
     const previewPages = []
@@ -98,14 +125,31 @@ const ProductsPage = () => {
   }
 
   const currentPreviwsPerPage = getPaginationPreview()
+
+  const handleFilterChange = (status: 'all' | 'high' | 'low') => {
+    setFilterStatus(status)
+    setPage(0) // Reseta para a primeira página ao aplicar o filtro
+  }
   return (
     <AppContainer>
       <h4 className="TitlePage">Produtos</h4>
 
       <div className="filter">
-        <InputFilter />
+        <InputFilter search={search} setSearch={setSearch} />
         <div className="iconPageProducts">
-          <img src={iconFilter} />
+          <img
+            src={iconFilter}
+            onClick={() => setIsFilterVisible((prev) => !prev)}
+          />
+          <div
+            className="containerFilter"
+            style={{ display: isFilterVisible ? 'flex' : 'none' }}
+          >
+            <Filter_All_High_or_low
+              onFilterChange={handleFilterChange}
+              setIsFilterVisible={setIsFilterVisible}
+            />
+          </div>
         </div>
       </div>
 
@@ -120,8 +164,7 @@ const ProductsPage = () => {
       />
       <div className="containerPaginationTable">
         <span className="span-left">
-          {page * rowsPerPage.current + currentProducts.length} <div>de</div>{' '}
-          {products!.length} <div>itens</div>
+          {endItem} <div>de</div> {sortedProducts.length} <div>itens</div>
         </span>
 
         <span className="span-right">

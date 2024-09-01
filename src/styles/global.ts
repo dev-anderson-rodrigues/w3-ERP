@@ -43,4 +43,17 @@ button {
   gap: 10px;
   border-radius: 16px;
 }
+.Toastify__toast {
+  width: 300px !important;
+  height: 90px !important;
+  min-height: 80px !important;
+  max-width: 100%;
+  border-radius: 10px !important;
+}
+.Toastify__close-button--light {
+    width: 40px !important;
+    margin-top: 10px;
+    margin-right: 10px;
+
+}
 `

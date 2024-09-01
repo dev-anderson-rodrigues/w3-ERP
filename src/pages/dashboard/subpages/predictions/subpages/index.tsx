@@ -10,6 +10,7 @@ import iconHistory from '../../../../../assets/icons/history.png'
 import icon_Out_of_stock from '../../../../../assets/icons/facial.png'
 import iconOutProduct from '../../../../../assets/icons/check-one.png'
 import imgOutHoverProduct from '../../../../../assets/icons/Group 37.png'
+import { toast } from 'react-toastify'
 import { useRef } from 'react'
 
 const PredictionById = () => {
@@ -30,6 +31,10 @@ const PredictionById = () => {
       })
     : []
 
+  const handleOutOfStock = (itemId: any) => {
+    setProduct(products!.filter((product) => product.id !== itemId))
+    toast.info('Baixa realizada com sucesso')
+  }
   const productTableData = sortedProducts.slice(0, 10).map((item) => ({
     ID: item.id,
     Produto: <div className="columnNameTable">{item.name}</div>,
@@ -41,9 +46,7 @@ const PredictionById = () => {
       <img
         src={iconOutProduct}
         className="imgOutProduct"
-        onClick={() =>
-          setProduct(products!.filter((product) => product.id !== item.id))
-        }
+        onClick={() => handleOutOfStock(item.id)}
       />
     ),
   }))

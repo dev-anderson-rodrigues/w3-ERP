@@ -1,9 +1,7 @@
 import { useState } from 'react'
 import CardsPredictions from '../../../../components/Cards_predictions'
-import Input from '../../../../components/Input'
 import { AppContainer } from './styles'
 import { useCustomer } from '../../../../context/Customers/useCustomer'
-import iconSearch from '../../../../assets/icons/search.png'
 import { useNavigate } from 'react-router-dom'
 import { isCustomer } from './utils'
 import InputFilter from '../../../../components/InputFilter'
@@ -11,6 +9,7 @@ import InputFilter from '../../../../components/InputFilter'
 const Predictions = () => {
   const [customerFilter] = useState<'alta' | 'baixa'>('baixa')
   const { customersList, getCustomerId } = useCustomer()
+  const [search, setSearch] = useState('')
   const navigate = useNavigate()
 
   const formatPercentage = (percentage: number | undefined) => {
@@ -21,11 +20,17 @@ const Predictions = () => {
     return '0.00%'
   }
   const sortedCustomers = customersList
-    ? [...customersList].sort((a, b) => {
-        return customerFilter === 'alta'
-          ? b.percentage! - a.percentage!
-          : a.percentage! - b.percentage!
-      })
+    ? [...customersList]
+        .filter((client) =>
+          search
+            ? client.name.toLowerCase().includes(search.toLowerCase())
+            : true,
+        )
+        .sort((a, b) => {
+          return customerFilter === 'alta'
+            ? b.percentage! - a.percentage!
+            : a.percentage! - b.percentage!
+        })
     : []
 
   const customerTableData = sortedCustomers.slice(0, 199).map((item) => ({
@@ -46,7 +51,7 @@ const Predictions = () => {
   return (
     <AppContainer>
       <h4 className="title">Predições</h4>
-      <InputFilter />
+      <InputFilter setSearch={setSearch} search={search} />
 
       <div className="containerCards">
         {customerTableData.map((card) => (

@@ -18,4 +18,6 @@ export interface IAuthContext {
   logout: () => void
   rememberMe: boolean
   setRememberMe: Dispatch<SetStateAction<boolean>>
+  setShowLogoutMenu: React.Dispatch<React.SetStateAction<boolean>>
+  showLogoutMenu: boolean
 }

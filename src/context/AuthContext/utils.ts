@@ -22,14 +22,11 @@ export const login = async (data: IAuthUser): Promise<IUser | null> => {
   try {
     // Fazendo a requisição para obter usuários com o email fornecido
     const response = await Api.get<IUser[]>(`login?user=${data.user}`)
-
-    console.log(response)
     // Verificando se a senha está correta para o usuário com o email fornecido
     const user = response.data.find((user) => user.password === data.password)
 
+    console.log(response)
     if (user) {
-      // Se o usuário for encontrado e a senha estiver correta
-      console.log('User logged in successfully:', user)
       return user
     } else {
       // Se o usuário não for encontrado ou a senha estiver incorreta
@@ -43,9 +40,7 @@ export const login = async (data: IAuthUser): Promise<IUser | null> => {
         throw new Error('Usuário não autorizado!')
       }
     } else {
-      throw new Error(
-        'Email ou senha inválidos. Tente novamente ou crie uma nova conta.',
-      )
+      throw new Error()
     }
     throw error
   }

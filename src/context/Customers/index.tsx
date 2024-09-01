@@ -19,10 +19,6 @@ export const CustomerProvider = ({
         const response = await Api.get<ICustomer[]>('customers')
         const result = response.data
         setCustomersList(result)
-        console.log(
-          'Clientes carregados:',
-          result.filter((x) => x !== null),
-        )
 
         // console.log('Clientes carregados:', result)
       } catch (error) {
@@ -34,21 +30,16 @@ export const CustomerProvider = ({
   }, [])
 
   const getCustomerId = (data: Customer) => {
-    console.log('aqui esta o data', data)
-
     if (data) {
       setCustomersClient(null)
       setCustomersClient(() => data)
-      console.log('Cliente atualizado:', data)
     } else {
       console.log('Cliente não encontrado')
     }
   }
 
   // useEffect para monitorar mudanças no estado customerProducts
-  useEffect(() => {
-    console.log('aqui esta o customersClient', customersClient)
-  }, [customersClient])
+  useEffect(() => {}, [customersClient])
 
   return (
     <CustomersContext.Provider
