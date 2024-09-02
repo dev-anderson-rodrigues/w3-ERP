@@ -96,6 +96,13 @@ O **W3 ERP** é um Sistema Integrado de Gestão Empresarial focado em predição
 ## Visualizar Deploy
 
 -  Link do Projeto Final: [Aplicação](https://w3-erp.netlify.app/)
+-  usuário de testes:
+    [ 
+        {
+            "user": "user@example.com",
+            "password": "Password123@"
+        }
+    ]
 
 
 ## Links Úteis
