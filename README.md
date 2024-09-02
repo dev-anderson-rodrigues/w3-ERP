@@ -55,6 +55,21 @@ O **W3 ERP** é um Sistema Integrado de Gestão Empresarial focado em predição
 
 - Node.js
 - npm ou yarn
+### Executando o Projeto
+
+1. Inicie o servidor de desenvolvimento:
+   ```bash
+   npm run dev
+   ```
+   ou
+   ```bash
+   yarn dev
+   ```
+2. Acesse o projeto no navegador:
+   ```
+   http://localhost:5173
+   ```
+
 
 ## Exemplos de Imagens
 
@@ -104,21 +119,6 @@ O **W3 ERP** é um Sistema Integrado de Gestão Empresarial focado em predição
    ou
    ```bash
    yarn install
-   ```
-
-### Executando o Projeto
-
-1. Inicie o servidor de desenvolvimento:
-   ```bash
-   npm run dev
-   ```
-   ou
-   ```bash
-   yarn dev
-   ```
-2. Acesse o projeto no navegador:
-   ```
-   http://localhost:5173
    ```
 
 
