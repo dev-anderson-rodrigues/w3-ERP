@@ -12,7 +12,7 @@ O **W3 ERP** é um Sistema Integrado de Gestão Empresarial focado em predição
 -  [Tecnologias Utilizadas](#tecnologias-utilizadas)
 -  [Como Executar o projeto](#como-executar-o-projeto)
 -  [Exemplos de Imagens](#exemplos-de-imagens)
--  [Estrutura de Pastas](#estrutura-de-pastas)
+-  [Estrutura de Pastas](#estrutura-do-projeto)
 -  [Visualiza Deploy](#visualizar-deploy)
 -  [Links Úteis](#Links-Úteis)
 -  [Instalação](#instalação)
