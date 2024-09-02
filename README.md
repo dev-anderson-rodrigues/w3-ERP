@@ -12,7 +12,7 @@ O **W3 ERP** é um Sistema Integrado de Gestão Empresarial focado em predição
 -  [Tecnologias Utilizadas](#tecnologias-utilizadas)
 -  [Como Executar o projeto](#como-executar-o-projeto)
 -  [Exemplos de Imagens](#exemplos-de-imagens)
--  [Estrutura de Pastas](#estrutura-de-pastas)
+-  [Estrutura de Pastas](#estrutura-do-projeto)
 -  [Visualiza Deploy](#visualizar-deploy)
 -  [Links Úteis](#Links-Úteis)
 -  [Instalação](#instalação)
@@ -55,16 +55,31 @@ O **W3 ERP** é um Sistema Integrado de Gestão Empresarial focado em predição
 
 - Node.js
 - npm ou yarn
+### Executando o Projeto
+
+1. Inicie o servidor de desenvolvimento:
+   ```bash
+   npm run dev
+   ```
+   ou
+   ```bash
+   yarn dev
+   ```
+2. Acesse o projeto no navegador:
+   ```
+   http://localhost:5173
+   ```
+
 
 ## Exemplos de Imagens
 
 <p align="center">
-  <img src="" width="200" alt="Primeira Imagem">
-  <img src="" width="200" alt="Segunda Imagem">
-  <img src="" width="200" alt="Terceira Imagem">
-  <img src="" width="200" alt="Quarta Imagem">
-  <img src="" width="200" alt="Quinta Imagem">
-  <img src="" width="200" alt="Sexta Imagem">
+  <img src="https://github.com/user-attachments/assets/a25abeac-acdf-4fec-b963-8a7173958f3b" width="400" alt="Primeira Imagem">
+  <img src="https://github.com/user-attachments/assets/5ba800eb-9c5b-4c72-bca0-590bd9d32689" width="400" alt="Segunda Imagem">
+  <img src="https://github.com/user-attachments/assets/95c36f2f-c0e7-47ac-a45d-ef943e345e33" width="400" alt="Terceira Imagem">
+  <img src="https://github.com/user-attachments/assets/d8348a64-84a2-4859-8b9a-9a5cd3478b66" width="400" alt="Quarta Imagem">
+  <img src="https://github.com/user-attachments/assets/3fb7ec82-e841-434d-a0bf-5caf62ebcf0e" width="400" alt="Quinta Imagem">
+  <img src="https://github.com/user-attachments/assets/4bc3a3f4-e161-4d66-8c33-2de851a365a7" width="400" alt="Sexta Imagem">
 </p>
 
 ## Estrutura do Projeto
@@ -104,21 +119,6 @@ O **W3 ERP** é um Sistema Integrado de Gestão Empresarial focado em predição
    ou
    ```bash
    yarn install
-   ```
-
-### Executando o Projeto
-
-1. Inicie o servidor de desenvolvimento:
-   ```bash
-   npm run dev
-   ```
-   ou
-   ```bash
-   yarn dev
-   ```
-2. Acesse o projeto no navegador:
-   ```
-   http://localhost:5173
    ```
 
 
