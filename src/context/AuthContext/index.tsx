@@ -24,6 +24,12 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     }
   }, [])
 
+  useEffect(() => {
+    if (user === null) {
+      logout()
+    }
+  }, [user])
+
   const login = async (payload: IAuthUser) => {
     const user = await apiLogin(payload)
 
