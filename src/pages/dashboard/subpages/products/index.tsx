@@ -135,7 +135,7 @@ const ProductsPage = () => {
       <h4 className="TitlePage">Produtos</h4>
 
       <div className="filter">
-        <InputFilter search={search} setSearch={setSearch} />
+        <InputFilter setSearch={setSearch} />
         <div className="iconPageProducts">
           <img
             src={iconFilter}

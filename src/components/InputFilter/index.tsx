@@ -4,10 +4,9 @@ import { AppContainer } from './styles'
 import { useState } from 'react'
 
 type props = {
-  search: string // Valor do input de busca
   setSearch: React.Dispatch<React.SetStateAction<string>>
 }
-const InputFilter = ({ setSearch, search }: props) => {
+const InputFilter = ({ setSearch }: props) => {
   const [tempSearch, setTempSearch] = useState('')
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTempSearch(e.target.value)

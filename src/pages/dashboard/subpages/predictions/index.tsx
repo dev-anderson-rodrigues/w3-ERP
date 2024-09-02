@@ -51,7 +51,7 @@ const Predictions = () => {
   return (
     <AppContainer>
       <h4 className="title">Predições</h4>
-      <InputFilter setSearch={setSearch} search={search} />
+      <InputFilter setSearch={setSearch} />
 
       <div className="containerCards">
         {customerTableData.map((card) => (
