@@ -43,6 +43,7 @@ const Predictions = () => {
   }))
 
   const handleClickFilter = (obj: { [key: string]: any }) => {
+    console.log(obj)
     if (isCustomer(obj)) {
       getCustomerId(obj)
       navigate(`${obj.ID}`)
