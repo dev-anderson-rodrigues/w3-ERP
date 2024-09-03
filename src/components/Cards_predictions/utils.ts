@@ -11,9 +11,14 @@ export const formatDate = (date: string | Date): string => {
 export const sortProductsByNextPurchaseDate = (
   products: IProduct[],
 ): IProduct[] => {
-  return products.sort((a, b) => {
-    const dateA = new Date(a.nextPurchase).getTime()
-    const dateB = new Date(b.nextPurchase).getTime()
-    return dateA - dateB
-  })
+  const currentDate = new Date().getTime()
+  return products
+    .filter(
+      (product) => new Date(product.nextPurchase).getTime() >= currentDate,
+    )
+    .sort((a, b) => {
+      const dateA = new Date(a.nextPurchase).getTime()
+      const dateB = new Date(b.nextPurchase).getTime()
+      return dateA - dateB
+    })
 }

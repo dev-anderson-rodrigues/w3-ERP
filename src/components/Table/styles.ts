@@ -47,6 +47,7 @@ export const Table = styled.table`
       position: relative;
       height: 50px;
       transition: background-color 0.3s ease;
+      margin: 0;
 
       .badge {
         position: absolute;

@@ -54,6 +54,11 @@ export const ContainerTables = styled.div`
     th {
       max-width: 50vw;
     }
+    tbody {
+      td {
+        padding-right: 0;
+      }
+    }
   }
   .table {
     .name_and_filter {
