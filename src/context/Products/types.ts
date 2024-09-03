@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction } from 'react'
 
-export interface IProduct {
+export interface IProduct extends ProductCustom {
   id: string | number
   percentage: number | undefined
   amount: number
@@ -20,6 +20,6 @@ export interface IProductContext {
   products: IProduct[] | undefined
   setProduct: Dispatch<SetStateAction<IProduct[]>>
   getProductId: (data: ProductCustom) => void
-  setCustomerProducts: Dispatch<SetStateAction<ProductCustom | null>>
-  customerProducts: ProductCustom | null
+  setCustomerProducts: Dispatch<SetStateAction<IProduct | null>>
+  customerProducts: IProduct | null
 }

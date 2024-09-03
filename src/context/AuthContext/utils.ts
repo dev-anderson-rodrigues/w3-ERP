@@ -4,10 +4,11 @@ import { IUser, IAuthUser } from './types'
 
 export function getDadosProfileLocalStorage(): IUser | null {
   const profileJson = localStorage.getItem('profile')
+  console.log('Perfil do localStorage:', profileJson)
   return profileJson ? JSON.parse(profileJson) : null
 }
-
 export function setDadosProfileLocalStorage(profile: IAuthUser | null): void {
+  console.log('Definindo perfil no localStorage:', profile)
   localStorage.setItem('profile', JSON.stringify(profile))
 }
 export function setRemoveProfileLocalStorage() {

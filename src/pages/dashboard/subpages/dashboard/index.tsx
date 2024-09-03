@@ -4,7 +4,7 @@ import TableComponent from '../../../../components/Table'
 import icon1 from '../../../../assets/icons/Vector3.png'
 import icon2 from '../../../../assets/icons/every-user.png'
 import imgCalendary from '../../../../assets/icons/data.png'
-import { ContainerBlue, ContainerTables } from './styles'
+import { AppContainer, ContainerBlue, ContainerTables } from './styles'
 import NameTable from '../../../../components/Name_Table'
 import { useProduct } from '../../../../context/Products/useProducts'
 import { useCustomer } from '../../../../context/Customers/useCustomer'
@@ -26,8 +26,6 @@ const ElementIndexDashboard = () => {
     }
     return '0.00%'
   }
-
-  // Garantir que products e customers são arrays antes de usar
   const sortedProducts = products
     ? [...products].sort((a, b) => {
         return productFilter === 'alta'
@@ -57,7 +55,7 @@ const ElementIndexDashboard = () => {
     Qtd: item.amount,
   }))
   return (
-    <div>
+    <AppContainer>
       <ContainerBlue>
         <div className="content_top">
           <h4>Dashboard</h4>
@@ -126,7 +124,7 @@ const ElementIndexDashboard = () => {
           />
         </div>
       </ContainerTables>
-    </div>
+    </AppContainer>
   )
 }
 

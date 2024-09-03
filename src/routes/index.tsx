@@ -8,12 +8,10 @@ import GetById from '../pages/dashboard/subpages/getById'
 import Predictions from '../pages/dashboard/subpages/predictions'
 import PredictionById from '../pages/dashboard/subpages/predictions/subpages'
 import ProductsPage from '../pages/dashboard/subpages/products'
-import RedirectOnRefresh from '../components/RedirectOnRefresh'
 
 const AppRoutes = () => {
   return (
     <Router>
-      <RedirectOnRefresh />
       <Routes>
         <Route index element={<Login />} />
         <Route element={<ProtectRoute />}>

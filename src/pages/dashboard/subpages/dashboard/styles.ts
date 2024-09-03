@@ -1,5 +1,9 @@
 import styled from 'styled-components'
 
+export const AppContainer = styled.div`
+  padding-left: 20px;
+  padding-right: 20px;
+`
 export const ContainerBlue = styled.div`
   display: flex;
   flex-direction: column;
@@ -39,7 +43,7 @@ export const ContainerBlue = styled.div`
 
 export const ContainerTables = styled.div`
   display: flex;
-  padding: 20px;
+  /* padding: 20px; */
   gap: 20px;
   justify-content: center;
   height: 546px;
@@ -47,20 +51,21 @@ export const ContainerTables = styled.div`
   overflow-y: scroll;
 
   table {
-    width: 41vw;
+    /* width: 41vw; */
     thead {
-      width: 20px;
+      /* width: 20px; */
     }
     th {
-      max-width: 50vw;
+      /* max-width: 50vw; */
     }
     tbody {
       td {
-        padding-right: 0;
+        padding: 0;
       }
     }
   }
   .table {
+    width: 100%;
     .name_and_filter {
       display: flex;
       align-items: center;

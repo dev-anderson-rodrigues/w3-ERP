@@ -2,7 +2,7 @@
 import { useProduct } from '../../../../context/Products/useProducts'
 import CardsGraphic from '../../../../components/Cards_graphic'
 import { useCustomer } from '../../../../context/Customers/useCustomer'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useParams } from 'react-router-dom'
 import imgSeta from '../../../../assets/icons/left-small.png'
 import { Container, ContainerTables } from './styles'
 import NameTable from '../../../../components/Name_Table'
@@ -10,13 +10,36 @@ import TableComponent from '../../../../components/Table'
 import icon1 from '../../../../assets/icons/trending-down.png'
 import Icon2 from '../../../../assets/icons/trending-up.png'
 import { useSortAndFormat } from './utils'
+import { useEffect } from 'react'
 
 const GetById = () => {
-  const { products, customerProducts } = useProduct()
-  const { customersList, customersClient } = useCustomer()
+  const { products, customerProducts, setCustomerProducts } = useProduct()
+  const { customersList, customersClient, setCustomersClient } = useCustomer()
   const location = useLocation()
   const isProductPage = location.pathname.startsWith(`/dashboard/product/`)
   const isClientPage = location.pathname.startsWith(`/dashboard/client/`)
+  const { id } = useParams<{ id: string }>()
+
+  useEffect(() => {
+    if (
+      (id && isProductPage && products!.length > 0) ||
+      (id && isClientPage && customersList!.length > 0)
+    ) {
+      // Filtra o produto baseado no ID da URL
+      console.log(id)
+      const product = products!.find((product) => product.id == id)
+      if (product) {
+        setCustomerProducts(product)
+      } else {
+        console.log('Produto não encontrado')
+        setCustomerProducts(null)
+      }
+      const customer = customersList!.find((customer) => customer.id == id)
+      if (customer) {
+        setCustomersClient(customer)
+      }
+    }
+  }, [id, products, customersList])
 
   const { sortedCustomers, sortedProducts, formatPercentage } =
     useSortAndFormat()
@@ -67,8 +90,8 @@ const GetById = () => {
         <h4>Detalhamento</h4>
       </div>
       <h3>
-        {isProductPage && customerProducts?.Produto}
-        {isClientPage && customersClient?.Cliente}
+        {isProductPage && customerProducts?.name}
+        {isClientPage && customersClient?.name}
       </h3>
 
       <div className="container_cards">

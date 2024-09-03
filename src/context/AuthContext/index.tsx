@@ -17,25 +17,19 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
   useEffect(() => {
     const user = getDadosProfileLocalStorage()
+    console.log(user)
     if (user) {
-      setUser(user)
+      setUser(() => user)
       setIsAuthenticated(true)
       setRememberMe(true)
     }
   }, [])
 
-  useEffect(() => {
-    if (user === null) {
-      logout()
-    }
-  }, [user])
-
   const login = async (payload: IAuthUser) => {
     const user = await apiLogin(payload)
-
     setUser(user)
     setDadosProfileLocalStorage(user)
-    setIsAuthenticated(true)
+    setIsAuthenticated(() => true)
 
     return user
   }

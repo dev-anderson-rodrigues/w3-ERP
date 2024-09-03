@@ -11,14 +11,25 @@ import icon_Out_of_stock from '../../../../../assets/icons/facial.png'
 import iconOutProduct from '../../../../../assets/icons/check-one.png'
 import imgOutHoverProduct from '../../../../../assets/icons/Group 37.png'
 import { toast } from 'react-toastify'
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
+import { useParams } from 'react-router-dom'
 
 const PredictionById = () => {
   const tomorrow = new Date()
   tomorrow.setDate(tomorrow.getDate() + 1)
   const productRef = useRef(tomorrow)
-  const { customersClient } = useCustomer()
+  const { customersClient, customersList, setCustomersClient } = useCustomer()
   const { products, setProduct } = useProduct()
+  const { id } = useParams<{ id: string }>()
+
+  useEffect(() => {
+    if (id && customersList!.length > 0) {
+      const customer = customersList!.find((customer) => customer.id == id)
+      if (customer) {
+        setCustomersClient(customer)
+      }
+    }
+  }, [id, customersList])
 
   const sortedProducts = products
     ? [...products].sort((a, b) => {
@@ -86,15 +97,15 @@ const PredictionById = () => {
       </div>
       <div className="containerBlue">
         <div className="titleClient">
-          <h4>{customersClient?.Cliente}</h4>
+          <h4>{customersClient?.name}</h4>
           <div className="containerContact">
             <div className="containerCall">
               <img src={iconPhone} />
-              <p>{customersClient?.Phone}</p>
+              <p>{customersClient?.phone}</p>
             </div>
             <div className="containerEmail">
               <img src={iconEmail} />
-              <p>{customersClient?.Email}</p>
+              <p>{customersClient?.email}</p>
             </div>
           </div>
         </div>

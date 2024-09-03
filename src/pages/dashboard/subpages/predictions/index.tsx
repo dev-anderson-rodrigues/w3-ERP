@@ -8,7 +8,7 @@ import InputFilter from '../../../../components/InputFilter'
 
 const Predictions = () => {
   const [customerFilter] = useState<'alta' | 'baixa'>('baixa')
-  const { customersList, getCustomerId } = useCustomer()
+  const { customersList } = useCustomer()
   const [search, setSearch] = useState('')
   const navigate = useNavigate()
 
@@ -43,9 +43,8 @@ const Predictions = () => {
   }))
 
   const handleClickFilter = (obj: { [key: string]: any }) => {
-    console.log(obj)
     if (isCustomer(obj)) {
-      getCustomerId(obj)
+      // getCustomerId(obj)
       navigate(`${obj.ID}`)
     }
   }
