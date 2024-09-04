@@ -20,6 +20,6 @@ export interface ICustomersContext {
   customersList: ICustomer[]
   setCustomersList: Dispatch<SetStateAction<ICustomer[]>>
   setCustomersClient: Dispatch<SetStateAction<ICustomer | null>>
-  getCustomerId: (data: Customer) => void
+  // getCustomerId: (data: Customer) => void
   customersClient: ICustomer | null
 }

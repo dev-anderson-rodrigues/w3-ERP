@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from 'react'
-import { Customer, ICustomer, ICustomersContext } from './types'
+import { ICustomer, ICustomersContext } from './types'
 import { Api } from '../../services/api'
 
 export const CustomersContext = createContext<ICustomersContext | undefined>(
@@ -30,7 +30,7 @@ export const CustomerProvider = ({
     <CustomersContext.Provider
       value={{
         customersList,
-        getCustomerId: () => {},
+        // getCustomerId: () => {},
         customersClient,
         setCustomersClient,
         setCustomersList,

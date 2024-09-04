@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from 'react'
-import { IProduct, IProductContext, ProductCustom } from './types'
+import { IProduct, IProductContext } from './types'
 import { Api } from '../../services/api'
 import { useParams } from 'react-router-dom'
 
