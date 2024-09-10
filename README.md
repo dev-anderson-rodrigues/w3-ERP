@@ -152,6 +152,6 @@ Este projeto está sob a licença [MIT](https://choosealicense.com/licenses/mit/
 
 ---
 
-## Contato
+<h3 style="color:#7f5cd1;">Contato</h3>
 
--  [Anderson Cassio Rodrigues](www.linkedin.com/in/dev-anderson-rodrigues)
+- [Anderson Rodrigues](https://www.linkedin.com/in/dev-anderson-rodrigues/)
