@@ -39,6 +39,7 @@ O **W3 ERP** é um Sistema Integrado de Gestão Empresarial focado em predição
 - **Frontend:**
   - React
   - TypeScript
+  - Axios
   - Vite
   - Styled-Components
   - Material UI
