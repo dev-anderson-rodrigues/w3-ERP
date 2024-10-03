@@ -3,9 +3,9 @@
 **Status do Projeto:** Em desenvolvimento
 
 
-<h2 style="color:#7f5cd1; font-size:26px;">Descrição</h2>
+<h2 style="color:#7f5cd1; font-size:26px;">Descrição:</h2>
 
-O **W3 ERP** é um Sistema Integrado de Gestão Empresarial focado em predição de compras, desenvolvido como parte do módulo 4 do curso de programação, que ao ser concluído com sucesso, garantirá a obtenção do certificado de conclusão de estudos de 1 ano. Este projeto tem como objetivo consolidar as habilidades adquiridas ao longo do curso, preparando o desenvolvedor para atuar como um fullstack em ascensão.
+O W3 ERP é um Sistema Integrado de Gestão Empresarial focado em predição de compras, desenvolvido como parte do módulo 4 do curso de programação, que ao ser concluído com sucesso, garantirá a obtenção do certificado de conclusão de estudos de 1 ano. Este projeto tem como objetivo consolidar as habilidades adquiridas ao longo do curso, preparando o desenvolvedor para atuar como um fullstack em ascensão.
 
 ## Índice
 
