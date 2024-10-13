@@ -127,7 +127,9 @@ O W3 ERP é um Sistema Integrado de Gestão Empresarial focado em predição de 
    ```
    ou
    ```bash
-   yarn install
+   yarn add [package]
+   yarn add [package]@[version]
+   yarn add [package]@[tag]
    ```
 
 
